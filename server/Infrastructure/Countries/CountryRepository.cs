@@ -7,26 +7,16 @@ namespace eShopCmc.Infrastructure.Countries;
 public class CountryRepository : ICountryRepository
 {
     private readonly EShopCmcContext _context;
-    private readonly ILogger<CountryRepository> _logger;
-    public CountryRepository(EShopCmcContext context, ILogger<CountryRepository> logger)
+    public CountryRepository(EShopCmcContext context)
     {
         _context = context;
-        _logger = logger;
     }
 
     public async Task<List<Country>> GetCountriesAsync(CancellationToken ct)
     {
-        try
-        {
-            // TODO: Find a better way to seed the database 
-            await SeedCountriesData(ct); 
-            return await _context.Countries.ToListAsync(ct);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError($"GetCountriesAsync -> Error - {ex.Message}");
-            throw;
-        }
+        // TODO: Find a better way to seed the database 
+        await SeedCountriesData(ct); 
+        return await _context.Countries.ToListAsync(ct);
     }
 
     private async Task SeedCountriesData(CancellationToken ct)

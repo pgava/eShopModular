@@ -9,26 +9,16 @@ namespace eShopCmc.Infrastructure.Products;
 public class ProductRepository : IProductRepository
 {
     private readonly EShopCmcContext _context;
-    private readonly ILogger<ProductRepository> _logger;
-    public ProductRepository(EShopCmcContext context, ILogger<ProductRepository> logger)
+    public ProductRepository(EShopCmcContext context)
     {
         _context = context;
-        _logger = logger;
     }
 
     public async Task<List<Product>> GetProductsAsync(CancellationToken ct)
     {
-        try
-        {
-            // TODO: Find a better way to seed the database 
-            await SeedProductsData(ct);
-            return await _context.Products.ToListAsync(ct);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError($"GetProductsAsync -> Error occured - {ex.Message}");
-            throw;
-        }
+        // TODO: Find a better way to seed the database 
+        await SeedProductsData(ct);
+        return await _context.Products.ToListAsync(ct);
     }
 
     private async Task SeedProductsData(CancellationToken ct)
@@ -47,7 +37,7 @@ public class ProductRepository : IProductRepository
             products.Add(new Product
             {
                 Id = Guid.NewGuid(),
-                Name = $"Product-{productIndex}",
+                Name = $"Product Name-{productIndex}",
                 Description = $"This is the description for product {productIndex}",
                 ImageUrl = $"Image for product {productIndex}",
                 Price = price

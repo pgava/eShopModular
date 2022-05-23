@@ -15,9 +15,4 @@ public class CommandsExecutor
     {
         await _mediator.Send(command);
     }
-
-    // internal async Task<TResult> Execute<TResult>(ICommand<TResult> command)
-    // {
-    //     return await _mediator.Send(command);
-    // }
 }
