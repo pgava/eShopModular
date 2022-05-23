@@ -19,7 +19,7 @@ export const CartContent = () => {
         };
         fetch(`${orderApi}`, requestOptions)
             .then(data => {
-                setMessage('Product has been submitted');
+                setMessage('Order has been submitted. Thank you!!!');
                 removeProducts();
             })
             .catch((err) => {
@@ -40,7 +40,7 @@ export const CartContent = () => {
                 <div className="row mt-5">
                     <div className="col-2">
                         <div>
-                            <p>Product cost: {order.currency}{roundPrice(order.totalCost * order.exchangeRate)}</p>
+                            <p>Products cost: {order.currency}{roundPrice(order.totalCost * order.exchangeRate)}</p>
                             <p>Shipping cost: {order.currency}{roundPrice(shippingCost * order.exchangeRate)}</p>
                             <hr />
                             <p>Total: {order.currency}{roundPrice((order.totalCost + shippingCost) * order.exchangeRate)}</p>
