@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup} from '@testing-library/react';
+import {render, cleanup, fireEvent} from '@testing-library/react';
 import { Cart } from '../components/Cart';
 import {OrderContextType} from "../context/order-context";
 import {SelectedCountryContextType} from "../context/selected-country-context";  
@@ -35,7 +35,17 @@ describe('<Cart />', () => {
             );
             expect(queryByTestId('cart')).toBeTruthy();
         });
-        
+        it('renders the cart and accepts a click', () => {
+            const { queryByTestId } = render(
+                <Cart />
+            );
+            const btn = queryByTestId('cart');
+            expect(btn).toBeTruthy();
+            if (btn) {
+                fireEvent.click(btn);
+                expect(mockedUsedNavigate).toHaveBeenCalledTimes(1);
+            }
+        });
     });
 });
 

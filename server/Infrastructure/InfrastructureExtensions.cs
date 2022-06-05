@@ -5,17 +5,19 @@ using eShopCmc.Infrastructure.Countries;
 using eShopCmc.Infrastructure.Orders;
 using eShopCmc.Infrastructure.Products;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace eShopCmc.Infrastructure;
 
 public static class InfrastructureExtensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+    private const string EShopConnectionString = "eShopDb";
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<DbContext, EShopCmcContext>(options =>
          {
-             options.UseInMemoryDatabase("EShopInMemoryDatabase");
+             options.UseSqlServer(configuration.GetConnectionString(EShopConnectionString));
          });
 
         services.AddTransient<ICountryRepository, CountryRepository>();

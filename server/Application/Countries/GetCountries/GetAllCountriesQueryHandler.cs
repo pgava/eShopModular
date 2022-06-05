@@ -19,7 +19,7 @@ public class GetAllCountriesQueryHandler : IQueryHandler<GetAllCountriesQuery, L
         return countries.Select(x => new CountryViewModel
         {
             Id = x.Id,
-            Currency = x.Currency,
+            Currency = x.CurrencySymbol,
             CountryName = x.CountryName,
             ExchangeRate = x.ExchangeRate
         }).ToList();

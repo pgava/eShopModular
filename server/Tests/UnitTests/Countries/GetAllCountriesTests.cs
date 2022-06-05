@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using eShopCmc.Application.Countries.GetCountries;
 using eShopCmc.Domain.Countries;
@@ -13,8 +14,8 @@ namespace eShopCmc.UnitTests.Countries
         private readonly Mock<ICountryRepository> _countryRepository;
         private readonly List<Country> _countries = new()
         {
-            new Country { Id = 1, CountryName = "country 1", Currency = "A", ExchangeRate = 0.1M },
-            new Country { Id = 2, CountryName = "country 2", Currency = "B", ExchangeRate = 0.2M },
+            new Country { Id = Guid.NewGuid(), CountryName = "country 1", CurrencySymbol = "A", ExchangeRate = 0.1M },
+            new Country { Id = Guid.NewGuid(), CountryName = "country 2", CurrencySymbol = "B", ExchangeRate = 0.2M },
         };
 
         public GetAllCountriesTests()

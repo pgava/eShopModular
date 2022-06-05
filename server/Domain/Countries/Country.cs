@@ -2,8 +2,9 @@
 
 public class Country
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string CountryName { get; set; }
-    public string Currency { get; set; }
+    public string CurrencyCode { get; set; }
+    public string CurrencySymbol { get; set; }
     public decimal ExchangeRate { get; set; }
 }
