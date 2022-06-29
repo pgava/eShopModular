@@ -1,11 +1,14 @@
-using System.Reflection;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using eShopCmc.Api;
-using eShopCmc.Application.Contracts;
-using eShopCmc.Application.Countries.GetCountries;
-using eShopCmc.Infrastructure;
-using MediatR;
+using eShopCmc.Api.Configuration.ExecutionContext;
+using eShopCmc.Api.Controllers;
+using eShopCmc.Infrastructure.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Register Autofac 
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 Serilog.ILogger logger = CreateLogger.GetLogger();
 
@@ -15,15 +18,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMediatR(
-    typeof(GetAllCountriesQueryHandler).GetTypeInfo().Assembly
-);
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSingleton<IExecutionContextAccessor, ExecutionContextAccessor>();
 
-builder.Services.AddScoped<IEShopCmcModule, EShopCmcModule>();
-
-builder.Services.AddInfrastructure(configuration);
+// Need to register EShopCmcModule first because is used by the controllers
+builder.Host.ConfigureContainer<ContainerBuilder>(b => b.RegisterModule(new EShopCmcAutofacModule()));
 
 var app = builder.Build();
+
+var container = app.Services.GetAutofacRoot();
+
+app.UseCors(options => options.AllowAnyHeader().AllowAnyOrigin());
+
+// Register all dependencies
+ContainerManager.InitializeModules(container, logger, configuration);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -35,9 +43,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseCors(options => options.AllowAnyHeader().AllowAnyOrigin());
 
 app.MapControllers();
 
 app.Run();
-

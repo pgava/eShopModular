@@ -22,3 +22,9 @@ The solution uses `React 18.0.9`, `typescript 4.6.4` and `React Context` to mane
 The UI is very basic, more work needs to be done to make it look better.\
 A lot more tests need to be added. 
 
+## Docker support
+
+See this post [Dockerizing a React App](https://mherman.org/blog/dockerizing-a-react-app/) for more information.
+
+
+

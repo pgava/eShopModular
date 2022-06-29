@@ -2,6 +2,7 @@
 using eShopCmc.Domain.Orders;
 using eShopCmc.Domain.Products;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace eShopCmc.Infrastructure;
 
@@ -13,8 +14,11 @@ public class EShopCmcContext : DbContext
 
     public DbSet<OrderItem> OrderItems { get; set; }
 
-    public EShopCmcContext(DbContextOptions<EShopCmcContext> options) : base(options)
+    private readonly ILoggerFactory _loggerFactory;
+    
+    public EShopCmcContext(DbContextOptions<EShopCmcContext> options, ILoggerFactory loggerFactory) : base(options)
     {
+        _loggerFactory = loggerFactory;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

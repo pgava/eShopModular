@@ -1,18 +1,18 @@
-﻿using eShopCmc.Application.Contracts;
+﻿using Autofac;
+using eShopCmc.Application.Contracts;
+using eShopCmc.Infrastructure.Configuration;
 using MediatR;
 
 namespace eShopCmc.Infrastructure;
 
-public class CommandsExecutor
+public static class CommandsExecutor
 {
-    private readonly IMediator _mediator;
-
-    public CommandsExecutor(IMediator mediator)
+    public static async Task Execute(ICommand command)
     {
-        _mediator = mediator;
-    }
-    internal async Task Execute(ICommand command)
-    {
-        await _mediator.Send(command);
+        using (var scope = EShopCmcCompositionRoot.BeginLifetimeScope())
+        {
+            var mediator = scope.Resolve<IMediator>();
+            await mediator.Send(command);
+        }
     }
 }
