@@ -13,8 +13,8 @@ namespace eShopCmc.UnitTests.Products
         private readonly Mock<IProductRepository> _productRepository;
         private readonly List<Product> _products = new()
         {
-            new Product { Id = Guid.NewGuid(), Name = "product1", ImageUrl ="img1", Price=1M },
-            new Product { Id = Guid.NewGuid(), Name = "product2", ImageUrl ="test2", Price=2M },
+            new Product { Id = new ProductId(Guid.NewGuid()), Name = "product1", ImageUrl ="img1", Price=1M },
+            new Product { Id = new ProductId(Guid.NewGuid()), Name = "product2", ImageUrl ="test2", Price=2M },
         };
         
         public GetAllProductsQueryHandlerTests()

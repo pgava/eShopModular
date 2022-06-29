@@ -16,7 +16,7 @@ public class GetAllProductsQueryHandler : IQueryHandler<GetAllProductsQuery, Lis
         
         return products.Select(x => new ProductViewModel
         {
-            Id = x.Id,
+            Id = x.Id.Value,
             Name = x.Name,
             Description = x.Description,
             ImageUrl = x.ImageUrl,

@@ -33,6 +33,8 @@ app.UseCors(options => options.AllowAnyHeader().AllowAnyOrigin());
 // Register all dependencies
 ContainerManager.InitializeModules(container, logger, configuration);
 
+app.UseMiddleware<CorrelationMiddleware>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

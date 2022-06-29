@@ -2,7 +2,7 @@
 
 public class Order
 {
-    public Guid Id { get; set; }
+    public OrderId Id { get; set; }
     public decimal ShippingCost { get; set; }
     public decimal TotalCost { get; set; }
     public string Currency { get; set; }

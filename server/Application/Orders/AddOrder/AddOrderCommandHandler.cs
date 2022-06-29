@@ -1,5 +1,6 @@
 ﻿using eShopCmc.Application.Configuration.Commands;
 using eShopCmc.Domain.Orders;
+using eShopCmc.Domain.Products;
 using MediatR;
 
 namespace eShopCmc.Application.Orders.AddOrder;
@@ -18,7 +19,7 @@ public class AddOrderCommandHandler : ICommandHandler<AddOrderCommand>
             throw new ArgumentNullException("No items found.");
         }
         
-        var orderId = Guid.NewGuid();
+        var orderId = new OrderId(Guid.NewGuid());
         var order = new Order
         {
             Id = orderId,
@@ -27,9 +28,9 @@ public class AddOrderCommandHandler : ICommandHandler<AddOrderCommand>
             ExchangeRate = command.ExchangeRate,
             OrderItems = command.Products.Select(s => new OrderItem
             {
-                Id = Guid.NewGuid(),
+                Id = new OrderItemId(Guid.NewGuid()),
                 OrderId = orderId,
-                ProductId = s.Product.Id,
+                ProductId = new ProductId(s.Product.Id),
                 Quantity = s.Quantity,
                 Price = s.Product.Price
             }).ToList(),
