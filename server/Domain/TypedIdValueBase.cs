@@ -14,7 +14,7 @@
             Value = value;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(null, obj))
             {
@@ -29,7 +29,7 @@
             return Value.GetHashCode();
         }
 
-        public bool Equals(TypedIdValueBase other)
+        public bool Equals(TypedIdValueBase? other)
         {
             return this.Value == other?.Value;
         }

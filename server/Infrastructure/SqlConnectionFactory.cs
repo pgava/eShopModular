@@ -7,14 +7,14 @@ namespace eShopCmc.Infrastructure
     public class SqlConnectionFactory : ISqlConnectionFactory, IDisposable
     {
         private readonly string _connectionString;
-        private IDbConnection _connection;
+        private IDbConnection? _connection;
 
         public SqlConnectionFactory(string connectionString)
         {
             this._connectionString = connectionString;
         }
 
-        public IDbConnection GetOpenConnection()
+        public IDbConnection? GetOpenConnection()
         {
             if (this._connection == null || this._connection.State != ConnectionState.Open)
             {

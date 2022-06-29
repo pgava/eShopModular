@@ -1,6 +1,21 @@
 version: '3.7'
 
 services:
+  reverseproxy:
+    build:
+      context: ../
+      dockerfile: nginx/nginx.Dockerfile
+    depends_on:
+      - eshop.ui
+      - eshop.api
+    ports:
+      - "44395:44395"
+    networks:
+      eshopnet:
+        aliases:
+          - "api-local.eshopcmc.com"
+          - "www-local.eshopcmc.com"
+
   eshop.api:
     image: ${DOCKER_REGISTRY-}eshopapi
     build:
@@ -9,5 +24,49 @@ services:
     environment:
       - ASPNETCORE_URLS=http://*:5000
       - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - eshop.seq
     ports:
       - "5000:5000"
+    networks:
+      - eshopnet
+
+  eshop.ui:
+    build:
+      context: ../client
+      dockerfile: dockerfile
+    depends_on:
+      - eshop.seq
+    ports:
+      - "5005:3000"
+    networks:
+      - eshopnet
+
+  eshop.seq:
+    image: datalust/seq
+    #restart: unless-stopped
+    ports:
+      - "5342:80"
+    environment:
+      - ACCEPT_EULA=Y
+    networks:
+      - eshopnet
+
+  eshop.db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Australia01!
+    ports:
+      - "1434:1433"
+    volumes:
+      - sqlvolume:/var/opt/mssql
+    networks:
+      - eshopnet
+
+networks:
+  eshopnet: {}
+  
+volumes:
+  sqlvolume:
+    external: true

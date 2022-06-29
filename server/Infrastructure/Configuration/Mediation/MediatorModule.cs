@@ -49,6 +49,9 @@ namespace eShopCmc.Infrastructure.Configuration.Mediation
             }).InstancePerLifetimeScope();
         }
 
+        /*
+         * https://github.com/jbogard/MediatR/issues/128
+         */
         private class ScopedContravariantRegistrationSource : IRegistrationSource
         {
             private readonly IRegistrationSource _source = new ContravariantRegistrationSource();

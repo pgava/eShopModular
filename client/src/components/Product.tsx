@@ -15,7 +15,7 @@ export const Product = (props: IProductProperties) => {
     return (
         <div className="product" data-testid="product">
             <p className="product-title">{props.product.name}</p>
-            <img src="/images/product.jpg" alt="generic product" />
+            <img src={props.product.imageUrl} alt="generic product" />
             <div className="product-add">
                 <span>Price: {selectedCountry.currency}{roundPrice(props.product.price * selectedCountry.exchangeRate)}</span>
                 <button type="button" className="btn btn-sm btn-outline-primary"

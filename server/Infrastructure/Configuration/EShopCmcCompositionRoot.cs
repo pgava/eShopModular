@@ -1,19 +1,22 @@
 ﻿using Autofac;
 
-namespace eShopCmc.Infrastructure.Configuration
+namespace eShopCmc.Infrastructure.Configuration;
+internal static class EShopCmcCompositionRoot
 {
-    internal static class EShopCmcCompositionRoot
+    private static IContainer? _container;
+
+    internal static void SetContainer(IContainer? container)
     {
-        private static IContainer _container;
+        _container = container;
+    }
 
-        internal static void SetContainer(IContainer container)
+    internal static ILifetimeScope BeginLifetimeScope()
+    {
+        if (_container == null)
         {
-            _container = container;
+            throw new InvalidOperationException("Container not initialized");
         }
 
-        internal static ILifetimeScope BeginLifetimeScope()
-        {
-            return _container.BeginLifetimeScope();
-        }
+        return _container.BeginLifetimeScope();
     }
 }

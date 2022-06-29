@@ -13,6 +13,7 @@ internal static class CreateLogger
                 outputTemplate:
                 "[{Timestamp:HH:mm:ss} {Level:u3}] [{Module}] [{Context}] {Message:lj}{NewLine}{Exception}")
             .WriteTo.File(new CompactJsonFormatter(), "logs/logs.txt")
+            .WriteTo.Seq("http://eshop.seq:5341")
             .CreateLogger();
         
         logger.Information("Logger configured");

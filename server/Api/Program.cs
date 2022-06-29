@@ -4,6 +4,7 @@ using eShopCmc.Api;
 using eShopCmc.Api.Configuration.ExecutionContext;
 using eShopCmc.Api.Controllers;
 using eShopCmc.Infrastructure.Configuration;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,17 @@ app.UseCors(options => options.AllowAnyHeader().AllowAnyOrigin());
 
 // Register all dependencies
 ContainerManager.InitializeModules(container, logger, configuration);
+
+// nginx reverse proxy
+var forwardedHeaderOptions = new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+};
+forwardedHeaderOptions.KnownNetworks.Clear();
+forwardedHeaderOptions.KnownProxies.Clear();
+app.UseForwardedHeaders(forwardedHeaderOptions);
+
+app.UseMiddleware<CorrelationMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

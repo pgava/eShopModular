@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using eShopCmc.Application.Products;
 using eShopCmc.Application.Products.GetAllProducts;
 using eShopCmc.Domain.Products;
 using FluentAssertions;
@@ -13,8 +15,8 @@ namespace eShopCmc.UnitTests.Products
         private readonly Mock<IProductRepository> _productRepository;
         private readonly List<Product> _products = new()
         {
-            new Product { Id = Guid.NewGuid(), Name = "product1", ImageUrl ="img1", Price=1M },
-            new Product { Id = Guid.NewGuid(), Name = "product2", ImageUrl ="test2", Price=2M },
+            new Product( new ProductId(Guid.NewGuid()), "product1", "product1", "img1", 1M ),
+            new Product( new ProductId(Guid.NewGuid()), "product2", "product2", "img2", 2M ),
         };
         
         public GetAllProductsQueryHandlerTests()
@@ -33,7 +35,19 @@ namespace eShopCmc.UnitTests.Products
             var products = await sut.Handle(new GetAllProductsQuery(), default);
             
             // Assert
-            products.Should().BeEquivalentTo(_products);
+            products.Should().BeEquivalentTo(GetProductsViewModel());
+        }
+        
+        private List<ProductViewModel> GetProductsViewModel()
+        {
+            return _products.Select(p => new ProductViewModel
+            (
+                p.Id.Value,
+                p.Name,
+                p.Price,
+                p.ImageUrl,
+                p.Description
+            )).ToList();
         }
     }
 }

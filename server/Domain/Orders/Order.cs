@@ -2,7 +2,22 @@
 
 public class Order
 {
-    public Guid Id { get; set; }
+    public Order(OrderId id, string currency, List<OrderItem> orderItems, decimal shippingCost, decimal totalCost, decimal exchangeRate, DateTime createDate)
+    {
+        Id = id;
+        Currency = currency;
+        OrderItems = orderItems;
+        ShippingCost = shippingCost;
+        TotalCost = totalCost;
+        ExchangeRate = exchangeRate;
+        CreateDate = createDate;
+    }
+
+    public Order()
+    {
+    }
+    
+    public OrderId Id { get; set; }
     public decimal ShippingCost { get; set; }
     public decimal TotalCost { get; set; }
     public string Currency { get; set; }

@@ -1,5 +1,6 @@
 ﻿using eShopCmc.Application.Configuration.Commands;
 using eShopCmc.Domain.Orders;
+using eShopCmc.Domain.Products;
 using MediatR;
 
 namespace eShopCmc.Application.Orders.AddOrder;
@@ -18,24 +19,24 @@ public class AddOrderCommandHandler : ICommandHandler<AddOrderCommand>
             throw new ArgumentNullException("No items found.");
         }
         
-        var orderId = Guid.NewGuid();
+        var orderId = new OrderId(Guid.NewGuid());
         var order = new Order
-        {
-            Id = orderId,
-            CreateDate = DateTime.UtcNow,
-            Currency = command.Currency,
-            ExchangeRate = command.ExchangeRate,
-            OrderItems = command.Products.Select(s => new OrderItem
-            {
-                Id = Guid.NewGuid(),
-                OrderId = orderId,
-                ProductId = s.Product.Id,
-                Quantity = s.Quantity,
-                Price = s.Product.Price
-            }).ToList(),
-            ShippingCost = command.ShippingCost,
-            TotalCost = command.TotalCost
-        };
+        (
+            orderId,
+            command.Currency,
+            command.Products.Select(s => new OrderItem
+            (
+                new OrderItemId(Guid.NewGuid()),
+                orderId,
+                new ProductId(s.Product.Id),
+                s.Quantity,
+                s.Product.Price
+            )).ToList(),
+            command.ShippingCost,
+            command.TotalCost,
+            command.ExchangeRate,
+            DateTime.UtcNow
+        );
 
         await _orderRepository.AddOrderAsync(order, cancellationToken);
         return Unit.Value;

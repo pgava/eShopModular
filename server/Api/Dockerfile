@@ -10,10 +10,10 @@ COPY ["Infrastructure/eShopCmc.Infrastructure.csproj", "Infrastructure/"]
 RUN dotnet restore "Api/eShopCmc.Api.csproj"
 COPY . .
 WORKDIR "/src/Api"
-RUN dotnet build "eShopCmc.Api.csproj" -c Release -o /app/build
+RUN dotnet build "eShopCmc.Api.csproj" -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "eShopCmc.Api.csproj" -c Release -o /app/publish
+RUN dotnet publish "eShopCmc.Api.csproj" -o /app/publish
 
 FROM base AS final
 WORKDIR /app

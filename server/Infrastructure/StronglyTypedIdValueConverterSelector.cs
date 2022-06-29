@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿#nullable disable
+using System.Collections.Concurrent;
 using eShopCmc.Domain;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -57,3 +58,4 @@ namespace eShopCmc.Infrastructure
         }
     }
 }
+#nullable enable

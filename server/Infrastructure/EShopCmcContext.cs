@@ -1,4 +1,5 @@
-﻿using eShopCmc.Domain.Countries;
+﻿#nullable disable
+using eShopCmc.Domain.Countries;
 using eShopCmc.Domain.Orders;
 using eShopCmc.Domain.Products;
 using Microsoft.EntityFrameworkCore;
@@ -26,3 +27,4 @@ public class EShopCmcContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
     }
 }
+#nullable enable

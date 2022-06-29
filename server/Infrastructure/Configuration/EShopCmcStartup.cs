@@ -9,7 +9,7 @@ namespace eShopCmc.Infrastructure.Configuration
 {
     public class EShopCmcStartup
     {
-        private static IContainer _container;
+        private static IContainer? _container;
 
         public static void Initialize(
             string connectionString,

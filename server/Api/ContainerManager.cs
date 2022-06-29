@@ -3,7 +3,7 @@ using eShopCmc.Api.Configuration.ExecutionContext;
 using eShopCmc.Infrastructure.Configuration;
 using ILogger = Serilog.ILogger;
 
-namespace eShopCmc.Api.Controllers;
+namespace eShopCmc.Api;
 
 public static class ContainerManager
 {
@@ -11,8 +11,7 @@ public static class ContainerManager
 
     public static void InitializeModules(ILifetimeScope container, ILogger logger, IConfiguration configuration)
     {
-        var httpContextAccessor = container.Resolve<IHttpContextAccessor>();
-        var executionContextAccessor = new ExecutionContextAccessor(httpContextAccessor);
+        var executionContextAccessor = container.Resolve<IExecutionContextAccessor>();
         
         EShopCmcStartup.Initialize(
             configuration[EShopCmcConnectionString],

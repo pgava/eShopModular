@@ -15,12 +15,12 @@ public class GetAllProductsQueryHandler : IQueryHandler<GetAllProductsQuery, Lis
         var products =  await _productRepository.GetProductsAsync(cancellationToken);
         
         return products.Select(x => new ProductViewModel
-        {
-            Id = x.Id,
-            Name = x.Name,
-            Description = x.Description,
-            ImageUrl = x.ImageUrl,
-            Price = x.Price
-        }).ToList(); 
+        (
+            x.Id.Value,
+            x.Name,
+            x.Price,
+            x.ImageUrl,
+            x.Description
+        )).ToList(); 
     }
 }

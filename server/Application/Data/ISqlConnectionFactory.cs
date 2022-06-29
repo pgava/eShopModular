@@ -4,7 +4,7 @@ namespace eShopCmc.Application.Data
 {
     public interface ISqlConnectionFactory
     {
-        IDbConnection GetOpenConnection();
+        IDbConnection? GetOpenConnection();
 
         IDbConnection CreateNewConnection();
 

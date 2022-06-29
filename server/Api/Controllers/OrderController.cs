@@ -32,21 +32,24 @@ namespace eShopCmc.Api.Controllers
         public async Task<IActionResult> CreateOrder(AddOrderRequest request)
         {
             await _eShopCmcModule.ExecuteCommandAsync(new AddOrderCommand
-                {
-                    Currency = request.Currency,
-                    ExchangeRate = request.ExchangeRate,
-                    ShippingCost = request.ShippingCost,
-                    TotalCost = request.TotalCost,
-                    Products = request.Products.Select(x => new ShoppingCart
-                    {
-                        Quantity = x.Quantity,
-                        Product = new ProductViewModel
-                        {
-                            Id = x.Product.Id,
-                            Price = x.Product.Price
-                        }
-                    }).ToList()
-                });
+                (
+                    request.Currency,
+                    request.ExchangeRate,
+                    request.ShippingCost,
+                    request.TotalCost,
+                    request.Products.Select(x => new ShoppingCart
+                    (
+                        x.Quantity,
+                        new ProductViewModel
+                        (
+                            x.Product.Id,
+                            string.Empty,
+                            x.Product.Price,
+                            string.Empty,
+                            string.Empty
+                        )
+                    )).ToList()
+                ));
 
             return Ok();
         }

@@ -1,4 +1,5 @@
-﻿using eShopCmc.Domain;
+﻿#nullable disable
+using eShopCmc.Domain;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace eShopCmc.Infrastructure
@@ -14,3 +15,4 @@ namespace eShopCmc.Infrastructure
         private static TTypedIdValue Create(Guid id) => Activator.CreateInstance(typeof(TTypedIdValue), id) as TTypedIdValue;
     }
 }
+#nullable enable
