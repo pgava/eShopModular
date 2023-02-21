@@ -34,7 +34,7 @@ public class ExecutionContextAccessor : IExecutionContextAccessor
     {
         get
         {
-            if (IsAvailable && _httpContextAccessor.HttpContext.Request.Headers.Keys.Any(
+            if (_httpContextAccessor.HttpContext != null && _httpContextAccessor.HttpContext.Request.Headers.Keys.Any(
                     x => x == CorrelationMiddleware.CorrelationHeaderKey))
             {
                 return Guid.Parse(
