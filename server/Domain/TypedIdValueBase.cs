@@ -1,4 +1,4 @@
-﻿namespace eShopCmc.Domain
+﻿namespace eShopModular.Domain
 {
     public abstract class TypedIdValueBase : IEquatable<TypedIdValueBase>
     {

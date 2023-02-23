@@ -1,12 +1,12 @@
-﻿using eShopCmc.Application.Contracts;
-using eShopCmc.Application.Orders;
-using eShopCmc.Application.Orders.AddOrder;
-using eShopCmc.Application.Orders.GetShippingCost;
-using eShopCmc.Application.Products;
+﻿using eShopModular.Application.Contracts;
+using eShopModular.Application.Orders;
+using eShopModular.Application.Orders.AddOrder;
+using eShopModular.Application.Orders.GetShippingCost;
+using eShopModular.Application.Products;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingCart = eShopCmc.Application.Orders.AddOrder.ShoppingCart;
+using ShoppingCart = eShopModular.Application.Orders.AddOrder.ShoppingCart;
 
-namespace eShopCmc.Api.Controllers
+namespace eShopModular.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,8 +1,8 @@
-using eShopCmc.Domain.Products;
+using eShopModular.Domain.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace eShopCmc.Infrastructure.Products;
+namespace eShopModular.Infrastructure.Products;
 
 internal class ProductConfiguration : IEntityTypeConfiguration<Product>
 {

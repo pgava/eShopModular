@@ -1,8 +1,8 @@
-using eShopCmc.Domain.Countries;
+using eShopModular.Domain.Countries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace eShopCmc.Infrastructure.Countries;
+namespace eShopModular.Infrastructure.Countries;
 
 internal class CountryConfiguration : IEntityTypeConfiguration<Country>
 {

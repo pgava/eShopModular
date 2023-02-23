@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using eShopCmc.Application.Products;
-using eShopCmc.Application.Products.GetAllProducts;
-using eShopCmc.Domain.Products;
+using eShopModular.Application.Products;
+using eShopModular.Application.Products.GetAllProducts;
+using eShopModular.Domain.Products;
 using FluentAssertions;
 using Moq;
 using Xunit;
 
-namespace eShopCmc.UnitTests.Products
+namespace eShopModular.UnitTests.Products
 {
     public class GetAllProductsQueryHandlerTests
     {

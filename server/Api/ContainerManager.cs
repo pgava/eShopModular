@@ -1,9 +1,9 @@
 using Autofac;
-using eShopCmc.Api.Configuration.ExecutionContext;
-using eShopCmc.Infrastructure.Configuration;
+using eShopModular.Api.Configuration.ExecutionContext;
+using eShopModular.Infrastructure.Configuration;
 using ILogger = Serilog.ILogger;
 
-namespace eShopCmc.Api;
+namespace eShopModular.Api;
 
 public static class ContainerManager
 {

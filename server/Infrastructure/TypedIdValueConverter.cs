@@ -1,8 +1,8 @@
 ﻿#nullable disable
-using eShopCmc.Domain;
+using eShopModular.Domain;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace eShopCmc.Infrastructure
+namespace eShopModular.Infrastructure
 {
     public class TypedIdValueConverter<TTypedIdValue> : ValueConverter<TTypedIdValue, Guid>
         where TTypedIdValue : TypedIdValueBase

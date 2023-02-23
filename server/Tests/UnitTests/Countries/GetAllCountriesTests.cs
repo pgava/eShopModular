@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using eShopCmc.Application.Countries;
-using eShopCmc.Application.Countries.GetCountries;
-using eShopCmc.Domain.Countries;
+using eShopModular.Application.Countries;
+using eShopModular.Application.Countries.GetCountries;
+using eShopModular.Domain.Countries;
 using FluentAssertions;
 using Moq;
 using Serilog;
 using Xunit;
 
-namespace eShopCmc.UnitTests.Countries
+namespace eShopModular.UnitTests.Countries
 {
     public class GetAllCountriesTests
     {

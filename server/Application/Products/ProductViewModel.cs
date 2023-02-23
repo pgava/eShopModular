@@ -1,4 +1,4 @@
-﻿namespace eShopCmc.Application.Products;
+﻿namespace eShopModular.Application.Products;
 
 public class ProductViewModel
 {

@@ -1,6 +1,6 @@
-using eShopCmc.Application.Configuration.Queries;
+using eShopModular.Application.Configuration.Queries;
 
-namespace eShopCmc.Application.Orders.GetShippingCost;
+namespace eShopModular.Application.Orders.GetShippingCost;
 
 public class GetShippingCostQueryHandler : IQueryHandler<GetShippingCostQuery, int>
 {    

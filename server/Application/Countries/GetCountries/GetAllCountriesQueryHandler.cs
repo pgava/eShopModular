@@ -1,8 +1,8 @@
-using eShopCmc.Application.Configuration.Queries;
-using eShopCmc.Domain.Countries;
+using eShopModular.Application.Configuration.Queries;
+using eShopModular.Domain.Countries;
 using Serilog;
 
-namespace eShopCmc.Application.Countries.GetCountries;
+namespace eShopModular.Application.Countries.GetCountries;
 
 public class GetAllCountriesQueryHandler : IQueryHandler<GetAllCountriesQuery, List<CountryViewModel>>
 {

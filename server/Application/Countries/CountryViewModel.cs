@@ -1,4 +1,4 @@
-﻿namespace eShopCmc.Application.Countries;
+﻿namespace eShopModular.Application.Countries;
 
 public class CountryViewModel
 {

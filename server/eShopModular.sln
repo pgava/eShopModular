@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopCmc.Api", "Api\eShopCmc.Api.csproj", "{73BBBF12-D8FE-42EE-B04F-60921DC270C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Api", "Api\eShopModular.Api.csproj", "{73BBBF12-D8FE-42EE-B04F-60921DC270C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{90C9E580-65B9-4D66-97F5-63D0106824A0}"
 EndProject
@@ -8,13 +8,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8A33E877-B568-4220-9677-B950C60003F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopCmc.Infrastructure", "Infrastructure\eShopCmc.Infrastructure.csproj", "{0297DE97-4CEA-4BDD-A155-CBC53B8A1AA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Infrastructure", "Infrastructure\eShopModular.Infrastructure.csproj", "{0297DE97-4CEA-4BDD-A155-CBC53B8A1AA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopCmc.Application", "Application\eShopCmc.Application.csproj", "{BE53E00E-7BD0-4529-9792-329F2F527F76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Application", "Application\eShopModular.Application.csproj", "{BE53E00E-7BD0-4529-9792-329F2F527F76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{BFDE80FA-F9B7-4CA4-B436-DE06191F4F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopCmc.Domain", "Domain\eShopCmc.Domain.csproj", "{69D1A232-9FC5-4205-826C-E1B040B35D3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Domain", "Domain\eShopModular.Domain.csproj", "{69D1A232-9FC5-4205-826C-E1B040B35D3C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{33AEA580-927E-443E-97AA-DAE2DEE35657}"
 EndProject
@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopCmc.UnitTests", "Tests\UnitTests\eShopCmc.UnitTests.csproj", "{A6DBA178-13AB-4DA7-A28A-20F4D34B2587}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.UnitTests", "Tests\UnitTests\eShopModular.UnitTests.csproj", "{A6DBA178-13AB-4DA7-A28A-20F4D34B2587}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{AD8C8A07-B3DC-4F4C-9203-E2FF5AAE3B0C}"
 EndProject
@@ -32,7 +32,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMigrator", "Databas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database.eShop", "Database\Database.eShop\Database.eShop.csproj", "{1DEE2E80-119C-4B5B-9DED-3E8EC134D917}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopCmc.UnitTests", Tests\UnitTests\eShopCmc.UnitTests.csproj", "{3E383A89-F5B1-4C2B-8BE7-B78D234B352C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.UnitTests", Tests\UnitTests\eShopModular.UnitTests.csproj", "{3E383A89-F5B1-4C2B-8BE7-B78D234B352C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

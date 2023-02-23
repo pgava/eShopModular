@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace eShopCmc.Application.Data
+namespace eShopModular.Application.Data
 {
     public interface ISqlConnectionFactory
     {

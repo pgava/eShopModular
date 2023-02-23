@@ -1,7 +1,7 @@
-﻿using eShopCmc.Domain.Orders;
+﻿using eShopModular.Domain.Orders;
 using Serilog;
 
-namespace eShopCmc.Infrastructure.Orders;
+namespace eShopModular.Infrastructure.Orders;
 
 public class OrderRepository : IOrderRepository
 {

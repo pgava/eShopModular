@@ -1,7 +1,7 @@
-﻿using eShopCmc.Application.Contracts;
-using eShopCmc.Application.Products;
+﻿using eShopModular.Application.Contracts;
+using eShopModular.Application.Products;
 
-namespace eShopCmc.Application.Orders.AddOrder;
+namespace eShopModular.Application.Orders.AddOrder;
 
 public class AddOrderCommand : CommandBase
 {

@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Serilog;
 
-namespace eShopCmc.Infrastructure.Configuration.Logging
+namespace eShopModular.Infrastructure.Configuration.Logging
 {
     internal class LoggingModule : Module
     {

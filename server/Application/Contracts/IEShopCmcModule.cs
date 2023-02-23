@@ -1,5 +1,5 @@
 ﻿
-namespace eShopCmc.Application.Contracts;
+namespace eShopModular.Application.Contracts;
 
 public interface IEShopCmcModule
 {

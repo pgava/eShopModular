@@ -1,9 +1,9 @@
-﻿using eShopCmc.Application.Contracts;
-using eShopCmc.Application.Countries;
-using eShopCmc.Application.Countries.GetCountries;
+﻿using eShopModular.Application.Contracts;
+using eShopModular.Application.Countries;
+using eShopModular.Application.Countries.GetCountries;
 using Microsoft.AspNetCore.Mvc;
 
-namespace eShopCmc.Api.Controllers
+namespace eShopModular.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

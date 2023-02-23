@@ -1,4 +1,4 @@
-﻿namespace eShopCmc.Domain.Orders;
+﻿namespace eShopModular.Domain.Orders;
 
 public class Order
 {

@@ -1,11 +1,11 @@
 ﻿#nullable disable
-using eShopCmc.Domain.Countries;
-using eShopCmc.Domain.Orders;
-using eShopCmc.Domain.Products;
+using eShopModular.Domain.Countries;
+using eShopModular.Domain.Orders;
+using eShopModular.Domain.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace eShopCmc.Infrastructure;
+namespace eShopModular.Infrastructure;
 
 public class EShopCmcContext : DbContext
 {

@@ -1,6 +1,6 @@
-﻿using eShopCmc.Application.Configuration.Queries;
+﻿using eShopModular.Application.Configuration.Queries;
 
-namespace eShopCmc.Application.Countries.GetCountries;
+namespace eShopModular.Application.Countries.GetCountries;
 
 public class GetAllCountriesQuery : QueryBase<List<CountryViewModel>>
 {

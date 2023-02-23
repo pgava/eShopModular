@@ -1,10 +1,10 @@
 ﻿using Autofac;
-using eShopCmc.Application.Contracts;
-using eShopCmc.Infrastructure;
+using eShopModular.Application.Contracts;
+using eShopModular.Infrastructure;
 
-namespace eShopCmc.Api
+namespace eShopModular.Api
 {
-    public class EShopCmcAutofacModule : Module
+    public class EShopAutofacModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

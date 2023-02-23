@@ -1,11 +1,11 @@
 ﻿using System.Threading;
 using AutoFixture;
-using eShopCmc.Application.Orders.AddOrder;
-using eShopCmc.Domain.Orders;
+using eShopModular.Application.Orders.AddOrder;
+using eShopModular.Domain.Orders;
 using Moq;
 using Xunit;
 
-namespace eShopCmc.UnitTests.Orders
+namespace eShopModular.UnitTests.Orders
 {
     public class AddOrderTests
     {

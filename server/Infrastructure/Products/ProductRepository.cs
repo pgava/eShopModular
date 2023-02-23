@@ -1,7 +1,7 @@
-using eShopCmc.Domain.Products;
+using eShopModular.Domain.Products;
 using Microsoft.EntityFrameworkCore;
 
-namespace eShopCmc.Infrastructure.Products;
+namespace eShopModular.Infrastructure.Products;
 
 public class ProductRepository : IProductRepository
 {

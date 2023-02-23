@@ -1,11 +1,11 @@
 ﻿using Autofac;
-using eShopCmc.Infrastructure.Configuration.DataAccess;
-using eShopCmc.Infrastructure.Configuration.Logging;
-using eShopCmc.Infrastructure.Configuration.Mediation;
+using eShopModular.Infrastructure.Configuration.DataAccess;
+using eShopModular.Infrastructure.Configuration.Logging;
+using eShopModular.Infrastructure.Configuration.Mediation;
 using Serilog.Extensions.Logging;
 using ILogger = Serilog.ILogger;
 
-namespace eShopCmc.Infrastructure.Configuration
+namespace eShopModular.Infrastructure.Configuration
 {
     public class EShopCmcStartup
     {

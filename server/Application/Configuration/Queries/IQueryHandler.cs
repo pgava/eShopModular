@@ -1,7 +1,7 @@
-﻿using eShopCmc.Application.Contracts;
+﻿using eShopModular.Application.Contracts;
 using MediatR;
 
-namespace eShopCmc.Application.Configuration.Queries;
+namespace eShopModular.Application.Configuration.Queries;
 
 public interface IQueryHandler<in TQuery, TResult> :
     IRequestHandler<TQuery, TResult>

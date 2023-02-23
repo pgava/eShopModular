@@ -1,4 +1,4 @@
-namespace eShopCmc.Application.Orders;
+namespace eShopModular.Application.Orders;
 
 public class ShoppingCart
 {

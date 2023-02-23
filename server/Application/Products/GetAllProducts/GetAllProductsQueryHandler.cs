@@ -1,7 +1,7 @@
-using eShopCmc.Application.Configuration.Queries;
-using eShopCmc.Domain.Products;
+using eShopModular.Application.Configuration.Queries;
+using eShopModular.Domain.Products;
 
-namespace eShopCmc.Application.Products.GetAllProducts;
+namespace eShopModular.Application.Products.GetAllProducts;
 
 public class GetAllProductsQueryHandler : IQueryHandler<GetAllProductsQuery, List<ProductViewModel>>
 {

@@ -1,9 +1,9 @@
-﻿using eShopCmc.Application.Configuration.Commands;
-using eShopCmc.Domain.Orders;
-using eShopCmc.Domain.Products;
+﻿using eShopModular.Application.Configuration.Commands;
+using eShopModular.Domain.Orders;
+using eShopModular.Domain.Products;
 using MediatR;
 
-namespace eShopCmc.Application.Orders.AddOrder;
+namespace eShopModular.Application.Orders.AddOrder;
 
 public class AddOrderCommandHandler : ICommandHandler<AddOrderCommand>
 {

@@ -1,6 +1,6 @@
-﻿using eShopCmc.Application.Configuration.Queries;
+﻿using eShopModular.Application.Configuration.Queries;
 
-namespace eShopCmc.Application.Products.GetAllProducts;
+namespace eShopModular.Application.Products.GetAllProducts;
 
 public class GetAllProductsQuery : QueryBase<List<ProductViewModel>>
 {

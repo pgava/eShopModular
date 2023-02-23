@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\eShopCmc.Application.csproj" />
-    <ProjectReference Include="..\Infrastructure\eShopCmc.Infrastructure.csproj" />
+    <ProjectReference Include="..\Application\eShopModular.Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\eShopModular.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

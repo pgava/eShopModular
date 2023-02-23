@@ -1,9 +1,9 @@
 ﻿using Autofac;
-using eShopCmc.Application.Contracts;
-using eShopCmc.Infrastructure.Configuration;
+using eShopModular.Application.Contracts;
+using eShopModular.Infrastructure.Configuration;
 using MediatR;
 
-namespace eShopCmc.Infrastructure;
+namespace eShopModular.Infrastructure;
 
 public static class CommandsExecutor
 {

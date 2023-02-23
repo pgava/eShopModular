@@ -1,9 +1,9 @@
 ﻿using System.Threading;
-using eShopCmc.Application.Orders.GetShippingCost;
+using eShopModular.Application.Orders.GetShippingCost;
 using FluentAssertions;
 using Xunit;
 
-namespace eShopCmc.UnitTests.Orders
+namespace eShopModular.UnitTests.Orders
 {
     public class GetShippingCostTests
     {

@@ -1,4 +1,4 @@
-namespace eShopCmc.Infrastructure.Configuration;
+namespace eShopModular.Infrastructure.Configuration;
 
 public interface IExecutionContextAccessor
 {

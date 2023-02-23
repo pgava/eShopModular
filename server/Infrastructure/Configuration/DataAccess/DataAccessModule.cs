@@ -1,10 +1,10 @@
 ﻿using Autofac;
-using eShopCmc.Application.Data;
+using eShopModular.Application.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
 
-namespace eShopCmc.Infrastructure.Configuration.DataAccess
+namespace eShopModular.Infrastructure.Configuration.DataAccess
 {
     internal class DataAccessModule : Module
     {

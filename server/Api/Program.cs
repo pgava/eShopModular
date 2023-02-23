@@ -1,9 +1,9 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using eShopCmc.Api;
-using eShopCmc.Api.Configuration.ExecutionContext;
-using eShopCmc.Api.Controllers;
-using eShopCmc.Infrastructure.Configuration;
+using eShopModular.Api;
+using eShopModular.Api.Configuration.ExecutionContext;
+using eShopModular.Api.Controllers;
+using eShopModular.Infrastructure.Configuration;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +23,7 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSingleton<IExecutionContextAccessor, ExecutionContextAccessor>();
 
 // Need to register EShopCmcModule first because is used by the controllers
-builder.Host.ConfigureContainer<ContainerBuilder>(b => b.RegisterModule(new EShopCmcAutofacModule()));
+builder.Host.ConfigureContainer<ContainerBuilder>(b => b.RegisterModule(new EShopAutofacModule()));
 
 var app = builder.Build();
 

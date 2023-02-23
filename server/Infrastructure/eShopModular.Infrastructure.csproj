@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\eShopCmc.Application.csproj" />
-    <ProjectReference Include="..\Domain\eShopCmc.Domain.csproj" />
+    <ProjectReference Include="..\Application\eShopModular.Application.csproj" />
+    <ProjectReference Include="..\Domain\eShopModular.Domain.csproj" />
   </ItemGroup>
 
 </Project>

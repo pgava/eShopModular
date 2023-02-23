@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace eShopCmc.Infrastructure.Configuration;
+namespace eShopModular.Infrastructure.Configuration;
 internal static class EShopCmcCompositionRoot
 {
     private static IContainer? _container;

@@ -1,8 +1,8 @@
 ﻿using System.Data;
-using eShopCmc.Application.Data;
+using eShopModular.Application.Data;
 using Microsoft.Data.SqlClient;
 
-namespace eShopCmc.Infrastructure
+namespace eShopModular.Infrastructure
 {
     public class SqlConnectionFactory : ISqlConnectionFactory, IDisposable
     {

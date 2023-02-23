@@ -1,4 +1,4 @@
-﻿namespace eShopCmc.Api.Configuration.ExecutionContext;
+﻿namespace eShopModular.Api.Configuration.ExecutionContext;
 
 internal class CorrelationMiddleware
 {

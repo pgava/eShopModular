@@ -1,6 +1,6 @@
-﻿using eShopCmc.Domain.Products;
+﻿using eShopModular.Domain.Products;
 
-namespace eShopCmc.Domain.Orders;
+namespace eShopModular.Domain.Orders;
 
 public class OrderItem
 {

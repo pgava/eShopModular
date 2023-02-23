@@ -1,4 +1,4 @@
-﻿namespace eShopCmc.Domain.Products
+﻿namespace eShopModular.Domain.Products
 {
     public interface IProductRepository
     {

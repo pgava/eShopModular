@@ -1,9 +1,9 @@
-﻿using eShopCmc.Application.Contracts;
-using eShopCmc.Application.Products;
-using eShopCmc.Application.Products.GetAllProducts;
+﻿using eShopModular.Application.Contracts;
+using eShopModular.Application.Products;
+using eShopModular.Application.Products.GetAllProducts;
 using Microsoft.AspNetCore.Mvc;
 
-namespace eShopCmc.Api.Controllers
+namespace eShopModular.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
