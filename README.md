@@ -1,4 +1,4 @@
-# eShopCmc
+# eShopModular
 eShop implementation with ReactJs and C# Api.\
 For simplicity both client and backend code are in the same repository.
 
