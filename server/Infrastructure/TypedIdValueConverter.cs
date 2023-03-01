@@ -1,4 +1,5 @@
 ﻿#nullable disable
+using eShopModular.Common.Domain;
 using eShopModular.Domain;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 

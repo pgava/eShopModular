@@ -12,7 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Domain\eShopModular.Common.Domain.csproj" />
     <ProjectReference Include="..\Domain\eShopModular.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using eShopModular.Application;
+using eShopModular.Common.Application;
 using eShopModular.Infrastructure.Configuration.DataAccess;
 using eShopModular.Infrastructure.Configuration.Logging;
 using eShopModular.Infrastructure.Configuration.Mediation;

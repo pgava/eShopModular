@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using eShopModular.Application.Data;
+using eShopModular.Common.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;

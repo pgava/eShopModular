@@ -1,4 +1,6 @@
-﻿namespace eShopModular.Domain.Orders;
+﻿using eShopModular.Common.Domain;
+
+namespace eShopModular.Domain.Orders;
 
 public class OrderItemId : TypedIdValueBase
 {

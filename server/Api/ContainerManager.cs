@@ -1,5 +1,7 @@
 using Autofac;
 using eShopModular.Api.Configuration.ExecutionContext;
+using eShopModular.Application;
+using eShopModular.Common.Application;
 using eShopModular.Infrastructure.Configuration;
 using ILogger = Serilog.ILogger;
 

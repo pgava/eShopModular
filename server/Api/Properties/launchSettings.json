@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "eShopCmc": {
+    "eShopModular": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

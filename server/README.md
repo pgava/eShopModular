@@ -1,4 +1,4 @@
-# Getting Started with eShop CMC (API)
+# Getting Started with eShopModular (API)
 
 ## Run the project
 

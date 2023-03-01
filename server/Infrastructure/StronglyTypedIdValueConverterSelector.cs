@@ -1,5 +1,6 @@
 ﻿#nullable disable
 using System.Collections.Concurrent;
+using eShopModular.Common.Domain;
 using eShopModular.Domain;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
