@@ -1,8 +1,7 @@
 using Autofac;
-using eShopModular.Api.Configuration.ExecutionContext;
-using eShopModular.Application;
 using eShopModular.Common.Application;
-using eShopModular.Infrastructure.Configuration;
+using eShopModular.Modules.Orders.Infrastructure.Configuration;
+using eShopModular.Modules.Products.Infrastructure.Configuration;
 using ILogger = Serilog.ILogger;
 
 namespace eShopModular.Api;
@@ -15,9 +14,15 @@ public static class ContainerManager
     {
         var executionContextAccessor = container.Resolve<IExecutionContextAccessor>();
         
-        EShopCmcStartup.Initialize(
+        EShopOrdersStartup.Initialize(
             configuration[EShopCmcConnectionString],
             executionContextAccessor,
             logger);
+        
+        EShopProductsStartup.Initialize(
+            configuration[EShopCmcConnectionString],
+            executionContextAccessor,
+            logger);
+
     }
 }

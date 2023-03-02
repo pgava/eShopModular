@@ -2,10 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using eShopModular.Api;
 using eShopModular.Api.Configuration.ExecutionContext;
-using eShopModular.Api.Controllers;
-using eShopModular.Application;
 using eShopModular.Common.Application;
-using eShopModular.Infrastructure.Configuration;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);

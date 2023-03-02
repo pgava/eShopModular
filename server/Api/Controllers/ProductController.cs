@@ -1,6 +1,6 @@
-﻿using eShopModular.Application.Contracts;
-using eShopModular.Application.Products;
-using eShopModular.Application.Products.GetAllProducts;
+﻿using eShopModular.Modules.Products.Application.Contracts;
+using eShopModular.Modules.Products.Application.Products;
+using eShopModular.Modules.Products.Application.Products.GetAllProducts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eShopModular.Api.Controllers
@@ -9,18 +9,18 @@ namespace eShopModular.Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IEShopCmcModule _eShopCmcModule;
+        private readonly IEShopProductsModule _eShopProductsModule;
 
-        public ProductController(IEShopCmcModule eShopCmcModule)
+        public ProductController(IEShopProductsModule eShopProductsModule)
         {
-            _eShopCmcModule = eShopCmcModule;
+            _eShopProductsModule = eShopProductsModule;
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(List<ProductViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<ProductDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAllProducts(int? page, int? perPage)
         {
-            var products = await _eShopCmcModule.ExecuteQueryAsync(
+            var products = await _eShopProductsModule.ExecuteQueryAsync(
                 new GetAllProductsQuery());
 
             return Ok(products);

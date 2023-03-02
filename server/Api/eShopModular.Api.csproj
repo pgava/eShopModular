@@ -21,7 +21,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Application\eShopModular.Common.Application.csproj" />
-    <ProjectReference Include="..\Infrastructure\eShopModular.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Orders\Application\eShopModular.Modules.Orders.Application.csproj" />
+    <ProjectReference Include="..\Modules\Orders\Infrastructure\eShopModular.Modules.Orders.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Products\Application\eShopModular.Modules.Products.Application.csproj" />
+    <ProjectReference Include="..\Modules\Products\Infrastructure\eShopModular.Modules.Products.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

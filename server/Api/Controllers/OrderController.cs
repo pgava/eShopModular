@@ -1,10 +1,8 @@
-﻿using eShopModular.Application.Contracts;
-using eShopModular.Application.Orders;
-using eShopModular.Application.Orders.AddOrder;
-using eShopModular.Application.Orders.GetShippingCost;
-using eShopModular.Application.Products;
+﻿using eShopModular.Modules.Orders.Application.Contracts;
+using eShopModular.Modules.Orders.Application.Orders;
+using eShopModular.Modules.Orders.Application.Orders.AddOrder;
+using eShopModular.Modules.Orders.Application.Orders.GetShippingCost;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingCart = eShopModular.Application.Orders.AddOrder.ShoppingCart;
 
 namespace eShopModular.Api.Controllers
 {
@@ -12,17 +10,17 @@ namespace eShopModular.Api.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly IEShopCmcModule _eShopCmcModule;
-        public OrderController(IEShopCmcModule eShopCmcModule)
+        private readonly IEShopOrdersModule _eShopOrdersModule;
+        public OrderController(IEShopOrdersModule eShopOrdersModule)
         {
-            _eShopCmcModule = eShopCmcModule;
+            _eShopOrdersModule = eShopOrdersModule;
         }
 
         [HttpGet("shipping/{cost}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         public async Task<IActionResult> CalculateShippingCost(decimal cost)
         {
-            var shippingCost = await _eShopCmcModule.ExecuteQueryAsync(new GetShippingCostQuery {OrderPrice = cost});
+            var shippingCost = await _eShopOrdersModule.ExecuteQueryAsync(new GetShippingCostQuery {OrderPrice = cost});
 
             return Ok(shippingCost);
         }
@@ -31,7 +29,7 @@ namespace eShopModular.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateOrder(AddOrderRequest request)
         {
-            await _eShopCmcModule.ExecuteCommandAsync(new AddOrderCommand
+            await _eShopOrdersModule.ExecuteCommandAsync(new AddOrderCommand
                 (
                     request.Currency,
                     request.ExchangeRate,
@@ -40,7 +38,7 @@ namespace eShopModular.Api.Controllers
                     request.Products.Select(x => new ShoppingCart
                     (
                         x.Quantity,
-                        new ProductViewModel
+                        new ProductOrderDto
                         (
                             x.Product.Id,
                             string.Empty,

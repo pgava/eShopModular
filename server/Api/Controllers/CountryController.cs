@@ -1,6 +1,6 @@
-﻿using eShopModular.Application.Contracts;
-using eShopModular.Application.Countries;
-using eShopModular.Application.Countries.GetCountries;
+﻿using eShopModular.Modules.Orders.Application.Contracts;
+using eShopModular.Modules.Orders.Application.Countries;
+using eShopModular.Modules.Orders.Application.Countries.GetCountries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eShopModular.Api.Controllers
@@ -9,18 +9,18 @@ namespace eShopModular.Api.Controllers
     [ApiController]
     public class CountryController : ControllerBase
     {
-        private readonly IEShopCmcModule _eShopCmcModule;
+        private readonly IEShopOrdersModule _eShopOrdersModule;
 
-        public CountryController(IEShopCmcModule eShopCmcModule)
+        public CountryController(IEShopOrdersModule eShopOrdersModule)
         {
-            _eShopCmcModule = eShopCmcModule;
+            _eShopOrdersModule = eShopOrdersModule;
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(List<CountryViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<CountryDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAllCountries(int? page, int? perPage)
         {
-            var countries = await _eShopCmcModule.ExecuteQueryAsync(
+            var countries = await _eShopOrdersModule.ExecuteQueryAsync(
                 new GetAllCountriesQuery());
 
             return Ok(countries);

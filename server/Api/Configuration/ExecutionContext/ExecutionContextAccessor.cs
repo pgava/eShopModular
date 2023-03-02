@@ -1,6 +1,4 @@
-using eShopModular.Application;
 using eShopModular.Common.Application;
-using eShopModular.Infrastructure.Configuration;
 
 namespace eShopModular.Api.Configuration.ExecutionContext;
 

@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using AutoFixture;
-using eShopModular.Application.Orders.AddOrder;
-using eShopModular.Domain.Orders;
+using eShopModular.Modules.Orders.Application.Orders.AddOrder;
+using eShopModular.Modules.Orders.Domain.Orders;
 using Moq;
 using Xunit;
 

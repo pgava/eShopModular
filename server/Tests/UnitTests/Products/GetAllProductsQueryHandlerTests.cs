@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using eShopModular.Application.Products;
-using eShopModular.Application.Products.GetAllProducts;
-using eShopModular.Domain.Products;
+using eShopModular.Modules.Products.Application.Products;
+using eShopModular.Modules.Products.Application.Products.GetAllProducts;
+using eShopModular.Modules.Products.Domain.Products;
 using FluentAssertions;
 using Moq;
 using Xunit;
@@ -38,9 +38,9 @@ namespace eShopModular.UnitTests.Products
             products.Should().BeEquivalentTo(GetProductsViewModel());
         }
         
-        private List<ProductViewModel> GetProductsViewModel()
+        private List<ProductDto> GetProductsViewModel()
         {
-            return _products.Select(p => new ProductViewModel
+            return _products.Select(p => new ProductDto
             (
                 p.Id.Value,
                 p.Name,

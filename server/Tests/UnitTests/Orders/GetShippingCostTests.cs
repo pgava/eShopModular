@@ -1,5 +1,5 @@
 ﻿using System.Threading;
-using eShopModular.Application.Orders.GetShippingCost;
+using eShopModular.Modules.Orders.Application.Orders.GetShippingCost;
 using FluentAssertions;
 using Xunit;
 

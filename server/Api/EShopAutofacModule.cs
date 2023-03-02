@@ -1,6 +1,8 @@
 ﻿using Autofac;
-using eShopModular.Application.Contracts;
-using eShopModular.Infrastructure;
+using eShopModular.Modules.Orders.Application.Contracts;
+using eShopModular.Modules.Orders.Infrastructure;
+using eShopModular.Modules.Products.Application.Contracts;
+using eShopModular.Modules.Products.Infrastructure;
 
 namespace eShopModular.Api
 {
@@ -8,8 +10,12 @@ namespace eShopModular.Api
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<EShopCmcModule>()
-                .As<IEShopCmcModule>()
+            builder.RegisterType<EShopOrdersModule>()
+                .As<IEShopOrdersModule>()
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<EShopProductsModule>()
+                .As<IEShopProductsModule>()
                 .InstancePerLifetimeScope();
         }
     }
