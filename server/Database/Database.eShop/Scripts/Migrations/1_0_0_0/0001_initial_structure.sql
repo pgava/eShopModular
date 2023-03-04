@@ -8,15 +8,6 @@ CREATE SCHEMA [order]
 
 
 GO
-PRINT N'Creating [country]...';
-
-
-GO
-CREATE SCHEMA [country]
-    AUTHORIZATION [dbo];
-
-
-GO
 PRINT N'Creating [product]...';
 
 
@@ -57,11 +48,11 @@ CREATE TABLE [order].[Items] (
 
 
 GO
-PRINT N'Creating [country].[Countries]...';
+PRINT N'Creating [order].[Countries]...';
 
 
 GO
-CREATE TABLE [country].[Countries] (
+CREATE TABLE [order].[Countries] (
     [Id]              UNIQUEIDENTIFIER NOT NULL,
     [CountryName]     VARCHAR(255)     NOT NULL,
     [CurrencyCode]    VARCHAR(3)       NOT NULL,

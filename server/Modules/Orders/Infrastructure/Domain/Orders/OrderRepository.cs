@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using EShopModular.Modules.Orders.Domain.Orders;
+﻿using EShopModular.Modules.Orders.Domain.Orders;
 using Serilog;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Domain.Orders;
