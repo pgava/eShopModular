@@ -1,6 +1,6 @@
-﻿using eShopModular.Common.Domain;
+﻿using EShopModular.Common.Domain;
 
-namespace eShopModular.Modules.Orders.Domain.Countries;
+namespace EShopModular.Modules.Orders.Domain.Countries;
 
 public class CountryId : TypedIdValueBase
 {

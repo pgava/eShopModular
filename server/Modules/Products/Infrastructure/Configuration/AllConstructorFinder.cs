@@ -2,7 +2,7 @@
 using System.Reflection;
 using Autofac.Core.Activators.Reflection;
 
-namespace eShopModular.Modules.Products.Infrastructure.Configuration;
+namespace EShopModular.Modules.Products.Infrastructure.Configuration;
 
 /*
  * https://stackoverflow.com/questions/52793062/how-to-resolve-public-class-with-internal-constructor-on-autofac

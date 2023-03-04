@@ -1,20 +1,31 @@
-﻿namespace eShopModular.Modules.Orders.Application.Orders
+﻿using EShopModular.Modules.Orders.Application.Orders.AddOrder;
+
+namespace EShopModular.Api.Controllers
 {
     public class AddOrderRequest
     {
-        public AddOrderRequest(decimal shippingCost, decimal totalCost, string currency, decimal exchangeRate, List<ShoppingCart2> products)
+        public AddOrderRequest(
+            decimal shippingCost,
+            decimal totalCost,
+            string currency,
+            decimal exchangeRate,
+            List<OrderItemDto> orderItems)
         {
             ShippingCost = shippingCost;
             TotalCost = totalCost;
             Currency = currency;
             ExchangeRate = exchangeRate;
-            Products = products;
+            OrderItems = orderItems;
         }
 
         public decimal ShippingCost { get; set; }
+
         public decimal TotalCost { get; set; }
+
         public string Currency { get; set; }
+
         public decimal ExchangeRate { get; set; }
-        public List<ShoppingCart2> Products { get; set; }
+
+        public List<OrderItemDto> OrderItems { get; set; }
     }
 }

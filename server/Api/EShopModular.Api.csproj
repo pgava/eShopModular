@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <RootNamespace>EShopModular.Api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,14 +18,18 @@
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="5.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Application\eShopModular.Common.Application.csproj" />
-    <ProjectReference Include="..\Modules\Orders\Application\eShopModular.Modules.Orders.Application.csproj" />
-    <ProjectReference Include="..\Modules\Orders\Infrastructure\eShopModular.Modules.Orders.Infrastructure.csproj" />
-    <ProjectReference Include="..\Modules\Products\Application\eShopModular.Modules.Products.Application.csproj" />
-    <ProjectReference Include="..\Modules\Products\Infrastructure\eShopModular.Modules.Products.Infrastructure.csproj" />
+    <ProjectReference Include="..\Common\Application\EShopModular.Common.Application.csproj" />
+    <ProjectReference Include="..\Modules\Orders\Application\EShopModular.Modules.Orders.Application.csproj" />
+    <ProjectReference Include="..\Modules\Orders\Infrastructure\EShopModular.Modules.Orders.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules\Products\Application\EShopModular.Modules.Products.Application.csproj" />
+    <ProjectReference Include="..\Modules\Products\Infrastructure\EShopModular.Modules.Products.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

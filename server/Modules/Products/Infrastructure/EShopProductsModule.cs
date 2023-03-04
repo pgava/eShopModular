@@ -1,10 +1,11 @@
-﻿using Autofac;
-using eShopModular.Modules.Products.Application.Contracts;
-using eShopModular.Modules.Products.Infrastructure.Configuration;
-using eShopModular.Modules.Products.Infrastructure.Configuration.Processing;
+﻿using System.Threading.Tasks;
+using Autofac;
+using EShopModular.Modules.Products.Application.Contracts;
+using EShopModular.Modules.Products.Infrastructure.Configuration;
+using EShopModular.Modules.Products.Infrastructure.Configuration.Processing;
 using MediatR;
 
-namespace eShopModular.Modules.Products.Infrastructure;
+namespace EShopModular.Modules.Products.Infrastructure;
 
 public class EShopProductsModule : IEShopProductsModule
 {

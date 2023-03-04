@@ -1,6 +1,6 @@
-﻿using eShopModular.Modules.Products.Application.Contracts;
+﻿using EShopModular.Modules.Products.Application.Contracts;
 
-namespace eShopModular.Modules.Products.Application.Configuration.Queries;
+namespace EShopModular.Modules.Products.Application.Configuration.Queries;
 
 public abstract class QueryBase<TResult> : IQuery<TResult>
 {

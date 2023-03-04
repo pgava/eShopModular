@@ -1,8 +1,8 @@
-using eShopModular.Modules.Orders.Domain.Orders;
+using EShopModular.Modules.Orders.Domain.Orders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace eShopModular.Modules.Orders.Infrastructure.Domain.Orders;
+namespace EShopModular.Modules.Orders.Infrastructure.Domain.Orders;
 
 internal class ItemConfiguration : IEntityTypeConfiguration<OrderItem>
 {

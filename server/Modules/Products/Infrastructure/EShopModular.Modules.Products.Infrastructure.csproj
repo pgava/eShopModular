@@ -4,12 +4,14 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>EShopModular.Modules.Products.Infrastructure</RootNamespace>
     </PropertyGroup>
-
+    
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Common\Application\eShopModular.Common.Application.csproj" />
-      <ProjectReference Include="..\..\..\Common\Infrastructure\eShopModular.Common.Infrastructure.csproj" />
-      <ProjectReference Include="..\Application\eShopModular.Modules.Orders.Application.csproj" />
+        <ProjectReference Include="..\..\..\Common\Application\EShopModular.Common.Application.csproj" />
+        <ProjectReference Include="..\..\..\Common\Infrastructure\EShopModular.Common.Infrastructure.csproj" />
+        <ProjectReference Include="..\Application\EShopModular.Modules.Products.Application.csproj" />
+        <ProjectReference Include="..\Domain\EShopModular.Modules.Products.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -22,6 +24,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Domain" />
     </ItemGroup>
 
 </Project>

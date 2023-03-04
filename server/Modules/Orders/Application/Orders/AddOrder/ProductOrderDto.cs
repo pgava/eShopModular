@@ -1,4 +1,4 @@
-﻿namespace eShopModular.Modules.Orders.Application.Orders.AddOrder;
+﻿namespace EShopModular.Modules.Orders.Application.Orders.AddOrder;
 
 public class ProductOrderDto
 {
@@ -12,8 +12,12 @@ public class ProductOrderDto
     }
 
     public Guid Id { get; set; }
+
     public string Name { get; set; }
+
     public decimal Price { get; set; }
+
     public string ImageUrl { get; set; }
+
     public string Description { get; set; }
 }

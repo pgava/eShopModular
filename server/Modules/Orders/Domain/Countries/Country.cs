@@ -1,4 +1,4 @@
-﻿namespace eShopModular.Modules.Orders.Domain.Countries;
+﻿namespace EShopModular.Modules.Orders.Domain.Countries;
 
 public class Country
 {
@@ -12,8 +12,12 @@ public class Country
     }
 
     public CountryId Id { get; set; }
+
     public string CountryName { get; set; }
+
     public string CurrencyCode { get; set; }
+
     public string CurrencySymbol { get; set; }
+
     public decimal ExchangeRate { get; set; }
 }

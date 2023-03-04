@@ -1,10 +1,10 @@
 ﻿using Autofac;
-using eShopModular.Modules.Orders.Application.Contracts;
-using eShopModular.Modules.Orders.Infrastructure.Configuration;
-using eShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
+using EShopModular.Modules.Orders.Application.Contracts;
+using EShopModular.Modules.Orders.Infrastructure.Configuration;
+using EShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
 using MediatR;
 
-namespace eShopModular.Modules.Orders.Infrastructure;
+namespace EShopModular.Modules.Orders.Infrastructure;
 
 public class EShopOrdersModule : IEShopOrdersModule
 {

@@ -1,6 +1,7 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 
-namespace eShopModular.Modules.Orders.Infrastructure.Configuration;
+namespace EShopModular.Modules.Orders.Infrastructure.Configuration;
 internal static class EShopOrdersCompositionRoot
 {
     private static IContainer? _container;

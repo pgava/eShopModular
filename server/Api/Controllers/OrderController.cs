@@ -1,16 +1,16 @@
-﻿using eShopModular.Modules.Orders.Application.Contracts;
-using eShopModular.Modules.Orders.Application.Orders;
-using eShopModular.Modules.Orders.Application.Orders.AddOrder;
-using eShopModular.Modules.Orders.Application.Orders.GetShippingCost;
+﻿using EShopModular.Modules.Orders.Application.Contracts;
+using EShopModular.Modules.Orders.Application.Orders.AddOrder;
+using EShopModular.Modules.Orders.Application.Orders.GetShippingCost;
 using Microsoft.AspNetCore.Mvc;
 
-namespace eShopModular.Api.Controllers
+namespace EShopModular.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class OrderController : ControllerBase
     {
         private readonly IEShopOrdersModule _eShopOrdersModule;
+
         public OrderController(IEShopOrdersModule eShopOrdersModule)
         {
             _eShopOrdersModule = eShopOrdersModule;
@@ -20,7 +20,7 @@ namespace eShopModular.Api.Controllers
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         public async Task<IActionResult> CalculateShippingCost(decimal cost)
         {
-            var shippingCost = await _eShopOrdersModule.ExecuteQueryAsync(new GetShippingCostQuery {OrderPrice = cost});
+            var shippingCost = await _eShopOrdersModule.ExecuteQueryAsync(new GetShippingCostQuery { OrderPrice = cost });
 
             return Ok(shippingCost);
         }
@@ -29,25 +29,19 @@ namespace eShopModular.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateOrder(AddOrderRequest request)
         {
-            await _eShopOrdersModule.ExecuteCommandAsync(new AddOrderCommand
-                (
+            await _eShopOrdersModule.ExecuteCommandAsync(new AddOrderCommand(
                     request.Currency,
                     request.ExchangeRate,
                     request.ShippingCost,
                     request.TotalCost,
-                    request.Products.Select(x => new ShoppingCart
-                    (
+                    request.OrderItems.Select(x => new OrderItemDto(
                         x.Quantity,
-                        new ProductOrderDto
-                        (
+                        new ProductOrderDto(
                             x.Product.Id,
                             string.Empty,
                             x.Product.Price,
                             string.Empty,
-                            string.Empty
-                        )
-                    )).ToList()
-                ));
+                            string.Empty))).ToList()));
 
             return Ok();
         }

@@ -1,10 +1,10 @@
 ﻿#nullable disable
-using eShopModular.Modules.Orders.Domain.Countries;
-using eShopModular.Modules.Orders.Domain.Orders;
+using EShopModular.Modules.Orders.Domain.Countries;
+using EShopModular.Modules.Orders.Domain.Orders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace eShopModular.Modules.Orders.Infrastructure;
+namespace EShopModular.Modules.Orders.Infrastructure;
 
 public class EShopOrdersContext : DbContext
 {

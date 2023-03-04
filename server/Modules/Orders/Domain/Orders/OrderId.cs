@@ -1,6 +1,6 @@
-﻿using eShopModular.Common.Domain;
+﻿using EShopModular.Common.Domain;
 
-namespace eShopModular.Modules.Orders.Domain.Orders;
+namespace EShopModular.Modules.Orders.Domain.Orders;
 
 public class OrderId : TypedIdValueBase
 {

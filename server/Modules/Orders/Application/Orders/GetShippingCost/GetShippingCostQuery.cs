@@ -1,6 +1,6 @@
-﻿using eShopModular.Modules.Orders.Application.Configuration.Queries;
+﻿using EShopModular.Modules.Orders.Application.Configuration.Queries;
 
-namespace eShopModular.Modules.Orders.Application.Orders.GetShippingCost;
+namespace EShopModular.Modules.Orders.Application.Orders.GetShippingCost;
 
 public class GetShippingCostQuery : QueryBase<int>
 {

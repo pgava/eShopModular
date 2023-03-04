@@ -1,6 +1,6 @@
-using eShopModular.Common.Application;
+using EShopModular.Common.Application;
 
-namespace eShopModular.Api.Configuration.ExecutionContext;
+namespace EShopModular.Api.Configuration.ExecutionContext;
 
 public class ExecutionContextAccessor : IExecutionContextAccessor
 {

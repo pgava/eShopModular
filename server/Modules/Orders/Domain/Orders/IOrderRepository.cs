@@ -1,4 +1,4 @@
-﻿namespace eShopModular.Modules.Orders.Domain.Orders;
+﻿namespace EShopModular.Modules.Orders.Domain.Orders;
 
 public interface IOrderRepository
 {

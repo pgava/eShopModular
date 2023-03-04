@@ -1,5 +1,4 @@
-﻿
-namespace eShopModular.Modules.Orders.Application.Contracts;
+﻿namespace EShopModular.Modules.Orders.Application.Contracts;
 
 public interface IEShopOrdersModule
 {

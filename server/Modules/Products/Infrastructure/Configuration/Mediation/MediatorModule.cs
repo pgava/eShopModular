@@ -6,7 +6,7 @@ using FluentValidation;
 using MediatR;
 using MediatR.Pipeline;
 
-namespace eShopModular.Modules.Products.Infrastructure.Configuration.Mediation
+namespace EShopModular.Modules.Products.Infrastructure.Configuration.Mediation
 {
     public class MediatorModule : Autofac.Module
     {

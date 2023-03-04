@@ -1,6 +1,4 @@
-﻿
-
-namespace eShopModular.Modules.Orders.Application.Contracts;
+﻿namespace EShopModular.Modules.Orders.Application.Contracts;
 
 public abstract class CommandBase : ICommand
 {

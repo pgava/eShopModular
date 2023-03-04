@@ -1,4 +1,4 @@
-﻿namespace eShopModular.Modules.Orders.Application.Countries;
+﻿namespace EShopModular.Modules.Orders.Application.Countries;
 
 public class CountryDto
 {
@@ -9,9 +9,12 @@ public class CountryDto
         ExchangeRate = exchangeRate;
         Currency = currency;
     }
-    
+
     public Guid Id { get; set; }
+
     public string CountryName { get; set; }
+
     public string Currency { get; set; }
+
     public decimal ExchangeRate { get; set; }
 }

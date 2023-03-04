@@ -1,8 +1,9 @@
-﻿using Autofac;
-using eShopModular.Modules.Orders.Application.Contracts;
+﻿using System.Threading.Tasks;
+using Autofac;
+using EShopModular.Modules.Orders.Application.Contracts;
 using MediatR;
 
-namespace eShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
+namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
 
 public static class CommandsExecutor
 {

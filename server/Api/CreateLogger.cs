@@ -1,7 +1,7 @@
 using Serilog;
 using Serilog.Formatting.Compact;
 
-namespace eShopModular.Api;
+namespace EShopModular.Api;
 
 internal static class CreateLogger
 {
@@ -15,7 +15,7 @@ internal static class CreateLogger
             .WriteTo.File(new CompactJsonFormatter(), "logs/logs.txt")
             .WriteTo.Seq("http://eshop.seq:5341")
             .CreateLogger();
-        
+
         logger.Information("Logger configured");
 
         return logger;

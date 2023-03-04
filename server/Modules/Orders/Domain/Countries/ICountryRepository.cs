@@ -1,4 +1,4 @@
-﻿namespace eShopModular.Modules.Orders.Domain.Countries;
+﻿namespace EShopModular.Modules.Orders.Domain.Countries;
 
 public interface ICountryRepository
 {

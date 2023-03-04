@@ -1,9 +1,9 @@
 ﻿#nullable disable
-using eShopModular.Modules.Products.Domain.Products;
+using EShopModular.Modules.Products.Domain.Products;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace eShopModular.Modules.Products.Infrastructure;
+namespace EShopModular.Modules.Products.Infrastructure;
 
 public class EShopProductsContext : DbContext
 {

@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace eShopModular.Common.Infrastructure;
+namespace EShopModular.Common.Infrastructure;
 
 public class SqlConnectionFactory : ISqlConnectionFactory, IDisposable
 {

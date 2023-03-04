@@ -1,9 +1,9 @@
 ﻿using System.Threading;
-using eShopModular.Modules.Orders.Application.Orders.GetShippingCost;
+using EShopModular.Modules.Orders.Application.Orders.GetShippingCost;
 using FluentAssertions;
 using Xunit;
 
-namespace eShopModular.UnitTests.Orders
+namespace EShopModular.UnitTests.Orders
 {
     public class GetShippingCostTests
     {
@@ -27,6 +27,5 @@ namespace eShopModular.UnitTests.Orders
             // Assert
             response.Should().Be(shippingCost);
         }
-
     }
 }

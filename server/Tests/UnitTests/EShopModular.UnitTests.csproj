@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>EShopModular.UnitTests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,14 +23,18 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Domain\eShopModular.Common.Domain.csproj" />
-    <ProjectReference Include="..\..\Modules\Orders\Application\eShopModular.Modules.Orders.Application.csproj" />
-    <ProjectReference Include="..\..\Modules\Orders\Domain\eShopModular.Modules.Orders.Domain.csproj" />
-    <ProjectReference Include="..\..\Modules\Products\Application\eShopModular.Modules.Products.Application.csproj" />
-    <ProjectReference Include="..\..\Modules\Products\Domain\eShopModular.Modules.Products.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\Domain\EShopModular.Common.Domain.csproj" />
+    <ProjectReference Include="..\..\Modules\Orders\Application\EShopModular.Modules.Orders.Application.csproj" />
+    <ProjectReference Include="..\..\Modules\Orders\Domain\EShopModular.Modules.Orders.Domain.csproj" />
+    <ProjectReference Include="..\..\Modules\Products\Application\EShopModular.Modules.Products.Application.csproj" />
+    <ProjectReference Include="..\..\Modules\Products\Domain\EShopModular.Modules.Products.Domain.csproj" />
   </ItemGroup>
 
 </Project>

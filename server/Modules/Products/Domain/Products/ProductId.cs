@@ -1,6 +1,6 @@
-﻿using eShopModular.Common.Domain;
+﻿using EShopModular.Common.Domain;
 
-namespace eShopModular.Modules.Products.Domain.Products;
+namespace EShopModular.Modules.Products.Domain.Products;
 
 public class ProductId : TypedIdValueBase
 {

@@ -1,13 +1,13 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using eShopModular.Api;
-using eShopModular.Api.Configuration.ExecutionContext;
-using eShopModular.Common.Application;
+using EShopModular.Api;
+using EShopModular.Api.Configuration.ExecutionContext;
+using EShopModular.Common.Application;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Register Autofac 
+// Register Autofac
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 Serilog.ILogger logger = CreateLogger.GetLogger();

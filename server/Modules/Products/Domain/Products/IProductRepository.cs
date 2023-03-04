@@ -1,4 +1,4 @@
-﻿namespace eShopModular.Modules.Products.Domain.Products;
+﻿namespace EShopModular.Modules.Products.Domain.Products;
 
 public interface IProductRepository
 {

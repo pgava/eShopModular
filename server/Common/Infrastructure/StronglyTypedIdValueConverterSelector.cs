@@ -1,9 +1,9 @@
 ﻿#nullable disable
 using System.Collections.Concurrent;
-using eShopModular.Common.Domain;
+using EShopModular.Common.Domain;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace eShopModular.Common.Infrastructure
+namespace EShopModular.Common.Infrastructure
 {
     /// <summary>
     /// Based on https://andrewlock.net/strongly-typed-ids-in-ef-core-using-strongly-typed-entity-ids-to-avoid-primitive-obsession-part-4/

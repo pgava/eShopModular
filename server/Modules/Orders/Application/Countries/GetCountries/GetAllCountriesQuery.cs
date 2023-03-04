@@ -1,6 +1,6 @@
-﻿using eShopModular.Modules.Orders.Application.Configuration.Queries;
+﻿using EShopModular.Modules.Orders.Application.Configuration.Queries;
 
-namespace eShopModular.Modules.Orders.Application.Countries.GetCountries;
+namespace EShopModular.Modules.Orders.Application.Countries.GetCountries;
 
 public class GetAllCountriesQuery : QueryBase<List<CountryDto>>
 {

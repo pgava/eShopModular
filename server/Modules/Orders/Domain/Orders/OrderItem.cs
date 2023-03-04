@@ -1,4 +1,4 @@
-﻿namespace eShopModular.Modules.Orders.Domain.Orders;
+﻿namespace EShopModular.Modules.Orders.Domain.Orders;
 
 public class OrderItem
 {
@@ -10,11 +10,14 @@ public class OrderItem
         Quantity = quantity;
         Price = price;
     }
-    
-    public OrderItemId Id { get; set; }
-    public OrderId OrderId { get; set; }
-    public Guid ProductId { get; set; }
-    public int Quantity { get; set; }
-    public decimal Price { get; set; }
 
+    public OrderItemId Id { get; set; }
+
+    public OrderId OrderId { get; set; }
+
+    public Guid ProductId { get; set; }
+
+    public int Quantity { get; set; }
+
+    public decimal Price { get; set; }
 }

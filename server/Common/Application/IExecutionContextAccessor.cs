@@ -1,4 +1,4 @@
-namespace eShopModular.Common.Application;
+namespace EShopModular.Common.Application;
 
 public interface IExecutionContextAccessor
 {

@@ -1,10 +1,10 @@
 using Autofac;
-using eShopModular.Common.Application;
-using eShopModular.Modules.Orders.Infrastructure.Configuration;
-using eShopModular.Modules.Products.Infrastructure.Configuration;
+using EShopModular.Common.Application;
+using EShopModular.Modules.Orders.Infrastructure.Configuration;
+using EShopModular.Modules.Products.Infrastructure.Configuration;
 using ILogger = Serilog.ILogger;
 
-namespace eShopModular.Api;
+namespace EShopModular.Api;
 
 public static class ContainerManager
 {
@@ -13,16 +13,15 @@ public static class ContainerManager
     public static void InitializeModules(ILifetimeScope container, ILogger logger, IConfiguration configuration)
     {
         var executionContextAccessor = container.Resolve<IExecutionContextAccessor>();
-        
+
         EShopOrdersStartup.Initialize(
             configuration[EShopCmcConnectionString],
             executionContextAccessor,
             logger);
-        
+
         EShopProductsStartup.Initialize(
             configuration[EShopCmcConnectionString],
             executionContextAccessor,
             logger);
-
     }
 }

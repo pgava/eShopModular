@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Api", "Api\eShopModular.Api.csproj", "{73BBBF12-D8FE-42EE-B04F-60921DC270C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Api", "Api\EShopModular.Api.csproj", "{73BBBF12-D8FE-42EE-B04F-60921DC270C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{90C9E580-65B9-4D66-97F5-63D0106824A0}"
 EndProject
@@ -8,13 +8,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8A33E877-B568-4220-9677-B950C60003F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Infrastructure", "Infrastructure\eShopModular.Infrastructure.csproj", "{0297DE97-4CEA-4BDD-A155-CBC53B8A1AA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Infrastructure", "Infrastructure\EShopModular.Infrastructure.csproj", "{0297DE97-4CEA-4BDD-A155-CBC53B8A1AA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Application", "Application\eShopModular.Application.csproj", "{BE53E00E-7BD0-4529-9792-329F2F527F76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Application", "Application\EShopModular.Application.csproj", "{BE53E00E-7BD0-4529-9792-329F2F527F76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{BFDE80FA-F9B7-4CA4-B436-DE06191F4F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Domain", "Domain\eShopModular.Domain.csproj", "{69D1A232-9FC5-4205-826C-E1B040B35D3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Domain", "Domain\EShopModular.Domain.csproj", "{69D1A232-9FC5-4205-826C-E1B040B35D3C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{33AEA580-927E-443E-97AA-DAE2DEE35657}"
 EndProject
@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.UnitTests", "Tests\UnitTests\eShopModular.UnitTests.csproj", "{A6DBA178-13AB-4DA7-A28A-20F4D34B2587}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.UnitTests", "Tests\UnitTests\EShopModular.UnitTests.csproj", "{A6DBA178-13AB-4DA7-A28A-20F4D34B2587}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{AD8C8A07-B3DC-4F4C-9203-E2FF5AAE3B0C}"
 EndProject
@@ -40,25 +40,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{37
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{2E45D5D4-C648-49D1-9F1F-024BC9511A34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Common.Application", "Common\Application\eShopModular.Common.Application.csproj", "{B942D0B7-E8F6-48A8-90A7-CFD5969D1EDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Common.Application", "Common\Application\EShopModular.Common.Application.csproj", "{B942D0B7-E8F6-48A8-90A7-CFD5969D1EDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Common.Domain", "Common\Domain\eShopModular.Common.Domain.csproj", "{7328D099-0333-406A-930E-C3002EA41ECF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Common.Domain", "Common\Domain\EShopModular.Common.Domain.csproj", "{7328D099-0333-406A-930E-C3002EA41ECF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Common.Infrastructure", "Common\Infrastructure\eShopModular.Common.Infrastructure.csproj", "{8BC3D713-EDEA-4070-8D6D-1C49777EF126}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Common.Infrastructure", "Common\Infrastructure\EShopModular.Common.Infrastructure.csproj", "{8BC3D713-EDEA-4070-8D6D-1C49777EF126}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Modules.Orders.Application", "Modules\Orders\Application\eShopModular.Modules.Orders.Application.csproj", "{4E404181-E8AE-45EC-81E1-BC617233587B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Modules.Orders.Application", "Modules\Orders\Application\EShopModular.Modules.Orders.Application.csproj", "{4E404181-E8AE-45EC-81E1-BC617233587B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Modules.Orders.Domain", "Modules\Orders\Domain\eShopModular.Modules.Orders.Domain.csproj", "{6BE03BD0-6E87-4373-9A23-537D659FDF78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Modules.Orders.Domain", "Modules\Orders\Domain\EShopModular.Modules.Orders.Domain.csproj", "{6BE03BD0-6E87-4373-9A23-537D659FDF78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Modules.Orders.Infrastructure", "Modules\Orders\Infrastructure\eShopModular.Modules.Orders.Infrastructure.csproj", "{E0AD8A35-F704-48CA-97F7-74882C82F23E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Modules.Orders.Infrastructure", "Modules\Orders\Infrastructure\EShopModular.Modules.Orders.Infrastructure.csproj", "{E0AD8A35-F704-48CA-97F7-74882C82F23E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Modules.Products.Application", "Modules\Products\Application\eShopModular.Modules.Products.Application.csproj", "{0D6B53B1-C299-4F1F-853C-4D96052EBBD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Modules.Products.Application", "Modules\Products\Application\EShopModular.Modules.Products.Application.csproj", "{0D6B53B1-C299-4F1F-853C-4D96052EBBD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Modules.Products.Domain", "Modules\Products\Domain\eShopModular.Modules.Products.Domain.csproj", "{DCEE797E-EC99-4E5F-B49D-C65706BDD812}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Modules.Products.Domain", "Modules\Products\Domain\EShopModular.Modules.Products.Domain.csproj", "{DCEE797E-EC99-4E5F-B49D-C65706BDD812}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.Modules.Products.Infrastructure", "Modules\Products\Infrastructure\eShopModular.Modules.Products.Infrastructure.csproj", "{AAAA7D0E-4728-4BB5-842C-A73E43875837}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.Modules.Products.Infrastructure", "Modules\Products\Infrastructure\EShopModular.Modules.Products.Infrastructure.csproj", "{AAAA7D0E-4728-4BB5-842C-A73E43875837}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModular.UnitTests", Tests\UnitTests\eShopModular.UnitTests.csproj", "{3E383A89-F5B1-4C2B-8BE7-B78D234B352C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopModular.UnitTests", Tests\UnitTests\EShopModular.UnitTests.csproj", "{3E383A89-F5B1-4C2B-8BE7-B78D234B352C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

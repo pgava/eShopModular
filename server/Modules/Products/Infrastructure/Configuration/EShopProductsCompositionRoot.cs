@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace eShopModular.Modules.Products.Infrastructure.Configuration;
+namespace EShopModular.Modules.Products.Infrastructure.Configuration;
 internal static class EShopProductsCompositionRoot
 {
     private static IContainer? _container;

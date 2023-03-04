@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
-using eShopModular.Modules.Products.Application.Configuration.Queries;
+using EShopModular.Modules.Products.Application.Configuration.Queries;
 
-namespace eShopModular.Modules.Products.Infrastructure.Configuration
+namespace EShopModular.Modules.Products.Infrastructure.Configuration
 {
     internal static class Assemblies
     {

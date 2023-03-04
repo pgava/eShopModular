@@ -1,7 +1,4 @@
-using Serilog;
-using Serilog.Formatting.Compact;
-
-namespace eShopModular.Api;
+namespace EShopModular.Api;
 
 internal static class CreateConfiguration
 {

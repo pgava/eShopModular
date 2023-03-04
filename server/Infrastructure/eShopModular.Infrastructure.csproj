@@ -15,11 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\eShopModular.Application.csproj" />
-    <ProjectReference Include="..\Common\Application\eShopModular.Common.Application.csproj" />
-    <ProjectReference Include="..\Common\Domain\eShopModular.Common.Domain.csproj" />
-    <ProjectReference Include="..\Common\Infrastructure\eShopModular.Common.Infrastructure.csproj" />
-    <ProjectReference Include="..\Domain\eShopModular.Domain.csproj" />
+    <ProjectReference Include="..\Application\EShopModular.Application.csproj" />
+    <ProjectReference Include="..\Common\Application\EShopModular.Common.Application.csproj" />
+    <ProjectReference Include="..\Common\Domain\EShopModular.Common.Domain.csproj" />
+    <ProjectReference Include="..\Common\Infrastructure\EShopModular.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\Domain\EShopModular.Domain.csproj" />
   </ItemGroup>
 
 </Project>

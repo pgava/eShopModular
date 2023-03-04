@@ -1,4 +1,4 @@
-﻿namespace eShopModular.Modules.Products.Application.Products;
+﻿namespace EShopModular.Modules.Products.Application.Products;
 
 public class ProductDto
 {
@@ -12,8 +12,12 @@ public class ProductDto
     }
 
     public Guid Id { get; set; }
+
     public string Name { get; set; }
+
     public decimal Price { get; set; }
+
     public string ImageUrl { get; set; }
+
     public string Description { get; set; }
 }

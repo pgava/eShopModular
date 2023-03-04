@@ -1,8 +1,8 @@
-﻿using eShopModular.Modules.Orders.Domain.Countries;
+﻿using EShopModular.Modules.Orders.Domain.Countries;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
-namespace eShopModular.Modules.Orders.Infrastructure.Domain.Countries;
+namespace EShopModular.Modules.Orders.Infrastructure.Domain.Countries;
 
 public class CountryRepository : ICountryRepository
 {

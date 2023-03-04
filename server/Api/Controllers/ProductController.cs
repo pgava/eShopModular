@@ -1,9 +1,9 @@
-﻿using eShopModular.Modules.Products.Application.Contracts;
-using eShopModular.Modules.Products.Application.Products;
-using eShopModular.Modules.Products.Application.Products.GetAllProducts;
+﻿using EShopModular.Modules.Products.Application.Contracts;
+using EShopModular.Modules.Products.Application.Products;
+using EShopModular.Modules.Products.Application.Products.GetAllProducts;
 using Microsoft.AspNetCore.Mvc;
 
-namespace eShopModular.Api.Controllers
+namespace EShopModular.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -25,7 +25,5 @@ namespace eShopModular.Api.Controllers
 
             return Ok(products);
         }
-
-        
     }
 }

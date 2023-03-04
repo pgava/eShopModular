@@ -1,9 +1,9 @@
-﻿using eShopModular.Modules.Orders.Application.Contracts;
-using eShopModular.Modules.Orders.Application.Countries;
-using eShopModular.Modules.Orders.Application.Countries.GetCountries;
+﻿using EShopModular.Modules.Orders.Application.Contracts;
+using EShopModular.Modules.Orders.Application.Countries;
+using EShopModular.Modules.Orders.Application.Countries.GetCountries;
 using Microsoft.AspNetCore.Mvc;
 
-namespace eShopModular.Api.Controllers
+namespace EShopModular.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -25,6 +25,5 @@ namespace eShopModular.Api.Controllers
 
             return Ok(countries);
         }
-
     }
 }
