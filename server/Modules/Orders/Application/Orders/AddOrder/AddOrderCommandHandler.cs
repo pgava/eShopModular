@@ -15,11 +15,13 @@ public class AddOrderCommandHandler : ICommandHandler<AddOrderCommand>
 
     public async Task<Unit> Handle(AddOrderCommand command, CancellationToken cancellationToken)
     {
+        // TODO: Add validation for command
         if (command.OrderItems == null || command.OrderItems.Count == 0)
         {
             throw new ArgumentNullException("No items found.");
         }
 
+        // TODO: Add below to the order domain
         var orderId = new OrderId(Guid.NewGuid());
         var order = new Order(
             orderId,

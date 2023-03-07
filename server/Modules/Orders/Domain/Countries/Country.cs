@@ -1,6 +1,9 @@
-﻿namespace EShopModular.Modules.Orders.Domain.Countries;
+﻿using EShopModular.Common.Domain;
 
-public class Country
+namespace EShopModular.Modules.Orders.Domain.Countries;
+
+// TODO move this inside Orders folder
+public class Country : Entity
 {
     public Country(CountryId id, string countryName, string currencyCode, string currencySymbol, decimal exchangeRate)
     {

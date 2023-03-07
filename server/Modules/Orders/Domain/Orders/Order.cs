@@ -1,7 +1,9 @@
 ﻿#nullable disable
+using EShopModular.Common.Domain;
+
 namespace EShopModular.Modules.Orders.Domain.Orders;
 
-public class Order
+public class Order : Entity, IAggregateRoot
 {
     public Order(OrderId id, string currency, List<OrderItem> orderItems, decimal shippingCost, decimal totalCost, decimal exchangeRate, DateTime createDate)
     {

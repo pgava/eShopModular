@@ -1,6 +1,8 @@
-﻿namespace EShopModular.Modules.Orders.Domain.Orders;
+﻿using EShopModular.Common.Domain;
 
-public class OrderItem
+namespace EShopModular.Modules.Orders.Domain.Orders;
+
+public class OrderItem : Entity
 {
     public OrderItem(OrderItemId id, OrderId orderId, Guid productId, int quantity, decimal price)
     {

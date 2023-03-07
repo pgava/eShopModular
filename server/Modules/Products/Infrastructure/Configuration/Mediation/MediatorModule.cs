@@ -74,7 +74,7 @@ namespace EShopModular.Modules.Products.Infrastructure.Configuration.Mediation
 
             public IEnumerable<IComponentRegistration> RegistrationsFor(
                 Service service,
-                Func<Service, IEnumerable<ServiceRegistration>> registrationAccessor)
+                Func<Service, IEnumerable<IComponentRegistration>> registrationAccessor)
             {
                 var components = _source.RegistrationsFor(service, registrationAccessor);
                 foreach (var c in components)

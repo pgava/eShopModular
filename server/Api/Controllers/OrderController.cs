@@ -30,18 +30,19 @@ namespace EShopModular.Api.Controllers
         public async Task<IActionResult> CreateOrder(AddOrderRequest request)
         {
             await _eShopOrdersModule.ExecuteCommandAsync(new AddOrderCommand(
-                    request.Currency,
-                    request.ExchangeRate,
-                    request.ShippingCost,
-                    request.TotalCost,
-                    request.OrderItems.Select(x => new OrderItemDto(
-                        x.Quantity,
-                        new ProductOrderDto(
-                            x.Product.Id,
-                            string.Empty,
-                            x.Product.Price,
-                            string.Empty,
-                            string.Empty))).ToList()));
+                Guid.NewGuid(),
+                request.Currency,
+                request.ExchangeRate,
+                request.ShippingCost,
+                request.TotalCost,
+                request.OrderItems.Select(x => new OrderItemDto(
+                    x.Quantity,
+                    new ProductOrderDto(
+                        x.Product.Id,
+                        string.Empty,
+                        x.Product.Price,
+                        string.Empty,
+                        string.Empty))).ToList()));
 
             return Ok();
         }

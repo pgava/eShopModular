@@ -16,15 +16,18 @@ public class OrderRepository : IOrderRepository
 
     public async Task AddOrderAsync(Order order, CancellationToken ct)
     {
-        try
-        {
-            await _context.Orders.AddAsync(order, ct);
-            await _context.SaveChangesAsync(ct);
-        }
-        catch (Exception ex)
-        {
-            _logger.Error("AddOrderAsync -> Error - {Message}", ex.Message);
-            throw;
-        }
+        await _context.Orders.AddAsync(order, ct);
+
+        // TODO: Remove below try-catch block. The commit is done in the UnitOfWork
+        // try
+        // {
+        //     await _context.Orders.AddAsync(order, ct);
+        //     await _context.SaveChangesAsync(ct);
+        // }
+        // catch (Exception ex)
+        // {
+        //     _logger.Error("AddOrderAsync -> Error - {Message}", ex.Message);
+        //     throw;
+        // }
     }
 }
