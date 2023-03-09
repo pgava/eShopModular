@@ -1,6 +1,8 @@
-﻿namespace EShopModular.Modules.Products.Domain.Products;
+﻿using EShopModular.Common.Domain;
 
-public class Product
+namespace EShopModular.Modules.Products.Domain.Products;
+
+public class Product : Entity, IAggregateRoot
 {
     public Product(ProductId id, string name, string description, string imageUrl, decimal price)
     {

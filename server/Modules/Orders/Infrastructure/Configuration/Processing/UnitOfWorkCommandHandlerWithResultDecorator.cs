@@ -1,19 +1,20 @@
 ﻿using EShopModular.Common.Infrastructure;
 using EShopModular.Modules.Orders.Application.Configuration.Commands;
 using EShopModular.Modules.Orders.Application.Contracts;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
 
-internal class UnitOfWorkCommandHandlerWithResultDecorator<T, TResult> : ICommandHandler<T, TResult>
+internal class UnitOfWorkCommandHandlerWithResultDecorator<T, TResult> : IRequestHandler<T, TResult>, ICommandHandler
     where T : ICommand<TResult>
 {
-    private readonly ICommandHandler<T, TResult> _decorated;
+    private readonly IRequestHandler<T, TResult> _decorated;
     private readonly IUnitOfWork _unitOfWork;
     private readonly EShopOrdersContext _eshopOrdersContext;
 
     public UnitOfWorkCommandHandlerWithResultDecorator(
-        ICommandHandler<T, TResult> decorated,
+        IRequestHandler<T, TResult> decorated,
         IUnitOfWork unitOfWork,
         EShopOrdersContext eshopOrdersContext)
     {
@@ -24,7 +25,7 @@ internal class UnitOfWorkCommandHandlerWithResultDecorator<T, TResult> : IComman
 
     public async Task<TResult> Handle(T command, CancellationToken cancellationToken)
     {
-        var result = await this._decorated.Handle(command, cancellationToken);
+        var result = await _decorated.Handle(command, cancellationToken);
 
         if (command is InternalCommandBase<TResult>)
         {
@@ -36,7 +37,7 @@ internal class UnitOfWorkCommandHandlerWithResultDecorator<T, TResult> : IComman
             }
         }
 
-        await this._unitOfWork.CommitAsync(cancellationToken);
+        await _unitOfWork.CommitAsync(cancellationToken);
 
         return result;
     }

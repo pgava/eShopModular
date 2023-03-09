@@ -50,9 +50,9 @@ public class DomainEventsDispatcher : IDomainEventsDispatcher
                 new NamedParameter("id", domainEvent.Id)
             });
 
-            if (domainNotification != null)
+            if (domainNotification is IDomainEventNotification<IDomainEvent> domainEventNotification)
             {
-                domainEventNotifications.Add(domainNotification as IDomainEventNotification<IDomainEvent>);
+                domainEventNotifications.Add(domainEventNotification);
             }
         }
 

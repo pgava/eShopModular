@@ -2,18 +2,19 @@
 using EShopModular.Modules.Orders.Application.Configuration.Commands;
 using EShopModular.Modules.Orders.Application.Contracts;
 using FluentValidation;
+using MediatR;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
 
-internal class ValidationCommandHandlerWithResultDecorator<T, TResult> : ICommandHandler<T, TResult>
+internal class ValidationCommandHandlerWithResultDecorator<T, TResult> : IRequestHandler<T, TResult>, ICommandHandler
     where T : ICommand<TResult>
 {
     private readonly IList<IValidator<T>> _validators;
-    private readonly ICommandHandler<T, TResult> _decorated;
+    private readonly IRequestHandler<T, TResult> _decorated;
 
     public ValidationCommandHandlerWithResultDecorator(
         IList<IValidator<T>> validators,
-        ICommandHandler<T, TResult> decorated)
+        IRequestHandler<T, TResult> decorated)
     {
         this._validators = validators;
         _decorated = decorated;

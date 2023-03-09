@@ -1,6 +1,8 @@
 ﻿namespace EShopModular.Common.Infrastructure;
 
 public class BiDictionary<TFirst, TSecond>
+    where TFirst : notnull
+    where TSecond : notnull
 {
     private readonly IDictionary<TFirst, TSecond> _firstToSecond = new Dictionary<TFirst, TSecond>();
 
@@ -18,12 +20,12 @@ public class BiDictionary<TFirst, TSecond>
         _secondToFirst.Add(second, first);
     }
 
-    public bool TryGetByFirst(TFirst first, out TSecond second)
+    public bool TryGetByFirst(TFirst first, out TSecond? second)
     {
         return _firstToSecond.TryGetValue(first, out second);
     }
 
-    public bool TryGetBySecond(TSecond second, out TFirst first)
+    public bool TryGetBySecond(TSecond second, out TFirst? first)
     {
         return _secondToFirst.TryGetValue(second, out first);
     }

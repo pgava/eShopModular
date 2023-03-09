@@ -26,7 +26,7 @@ namespace EShopModular.UnitTests.Orders
             var sut = new AddOrderCommandHandler(_orderRepository.Object);
 
             // Act
-            _ = await sut.Handle(command, CancellationToken.None);
+            await sut.Handle(command, CancellationToken.None);
 
             // Assert
             _orderRepository.Verify(r =>

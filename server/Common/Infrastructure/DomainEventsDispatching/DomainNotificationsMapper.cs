@@ -11,11 +11,13 @@ public class DomainNotificationsMapper : IDomainNotificationsMapper
 
     public string GetName(Type type)
     {
-        return _domainNotificationsMap.TryGetBySecond(type, out var name) ? name : null;
+        return (_domainNotificationsMap.TryGetBySecond(type, out var name) ? name : null) ??
+               throw new InvalidOperationException();
     }
 
     public Type GetType(string name)
     {
-        return _domainNotificationsMap.TryGetByFirst(name, out var type) ? type : null;
+        return (_domainNotificationsMap.TryGetByFirst(name, out var type) ? type : null) ??
+               throw new InvalidOperationException();
     }
 }

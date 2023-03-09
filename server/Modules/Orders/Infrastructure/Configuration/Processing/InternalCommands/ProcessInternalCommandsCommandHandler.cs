@@ -7,7 +7,7 @@ using Polly;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing.InternalCommands;
 
-internal class ProcessInternalCommandsCommandHandler : ICommandHandler<ProcessInternalCommandsCommand>
+internal class ProcessInternalCommandsCommandHandler : IRequestHandler<ProcessInternalCommandsCommand>, ICommandHandler
 {
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
 
@@ -17,7 +17,7 @@ internal class ProcessInternalCommandsCommandHandler : ICommandHandler<ProcessIn
         _sqlConnectionFactory = sqlConnectionFactory;
     }
 
-    public async Task<Unit> Handle(ProcessInternalCommandsCommand command, CancellationToken cancellationToken)
+    public async Task Handle(ProcessInternalCommandsCommand command, CancellationToken cancellationToken)
     {
         var connection = this._sqlConnectionFactory.GetOpenConnection();
 
@@ -60,21 +60,30 @@ internal class ProcessInternalCommandsCommandHandler : ICommandHandler<ProcessIn
                     });
             }
         }
-
-        return Unit.Value;
     }
 
     private async Task ProcessCommand(
         InternalCommandDto internalCommand)
     {
-        Type type = Assemblies.Application.GetType(internalCommand.Type);
-        dynamic commandToProcess = JsonConvert.DeserializeObject(internalCommand.Data, type);
+        var internalCommandType = Assemblies.Application.GetType(internalCommand.Type);
+        if (internalCommandType != null)
+        {
+            Type type = internalCommandType;
+            dynamic? commandToProcess = JsonConvert.DeserializeObject(internalCommand.Data, type);
 
-        await CommandsExecutor.Execute(commandToProcess);
+            await CommandsExecutor.Execute(commandToProcess);
+        }
     }
 
     private class InternalCommandDto
     {
+        public InternalCommandDto(Guid id, string type, string data)
+        {
+            Id = id;
+            Type = type;
+            Data = data;
+        }
+
         public Guid Id { get; set; }
 
         public string Type { get; set; }

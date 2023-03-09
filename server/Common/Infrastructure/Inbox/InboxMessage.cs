@@ -14,13 +14,9 @@ public class InboxMessage
 
     public InboxMessage(DateTime occurredOn, string type, string data)
     {
-        this.Id = Guid.NewGuid();
-        this.OccurredOn = occurredOn;
-        this.Type = type;
-        this.Data = data;
-    }
-
-    private InboxMessage()
-    {
+        Id = Guid.NewGuid();
+        OccurredOn = occurredOn;
+        Type = type;
+        Data = data;
     }
 }

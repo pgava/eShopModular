@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿#nullable disable
+using System.Reflection;
 
 namespace EShopModular.Common.Domain;
 
@@ -118,3 +119,4 @@ public abstract class ValueObject : IEquatable<ValueObject>
         return (seed * 23) + currentHash;
     }
 }
+#nullable enable

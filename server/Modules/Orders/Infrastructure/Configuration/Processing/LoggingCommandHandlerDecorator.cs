@@ -9,28 +9,28 @@ using Serilog.Events;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
 
-internal class LoggingCommandHandlerDecorator<T> : ICommandHandler<T>
+internal class LoggingCommandHandlerDecorator<T> : IRequestHandler<T>, ICommandHandler
     where T : ICommand
 {
     private readonly ILogger _logger;
     private readonly IExecutionContextAccessor _executionContextAccessor;
-    private readonly ICommandHandler<T> _decorated;
+    private readonly IRequestHandler<T> _decorated;
 
     public LoggingCommandHandlerDecorator(
         ILogger logger,
         IExecutionContextAccessor executionContextAccessor,
-        ICommandHandler<T> decorated)
+        IRequestHandler<T> decorated)
     {
         _logger = logger;
         _executionContextAccessor = executionContextAccessor;
         _decorated = decorated;
     }
 
-    public async Task<Unit> Handle(T command, CancellationToken cancellationToken)
+    public async Task Handle(T command, CancellationToken cancellationToken)
     {
         if (command is IRecurringCommand)
         {
-            return await _decorated.Handle(command, cancellationToken);
+            await _decorated.Handle(command, cancellationToken);
         }
 
         using (
@@ -44,11 +44,9 @@ internal class LoggingCommandHandlerDecorator<T> : ICommandHandler<T>
                     "Executing command {Command}",
                     command.GetType().Name);
 
-                var result = await _decorated.Handle(command, cancellationToken);
+                await _decorated.Handle(command, cancellationToken);
 
                 this._logger.Information("Command {Command} processed successful", command.GetType().Name);
-
-                return result;
             }
             catch (Exception exception)
             {

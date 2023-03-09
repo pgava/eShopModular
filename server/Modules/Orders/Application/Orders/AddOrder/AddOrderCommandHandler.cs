@@ -4,7 +4,7 @@ using MediatR;
 
 namespace EShopModular.Modules.Orders.Application.Orders.AddOrder;
 
-public class AddOrderCommandHandler : ICommandHandler<AddOrderCommand>
+public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand>, ICommandHandler
 {
     private readonly IOrderRepository _orderRepository;
 
@@ -13,7 +13,7 @@ public class AddOrderCommandHandler : ICommandHandler<AddOrderCommand>
         _orderRepository = orderRepository;
     }
 
-    public async Task<Unit> Handle(AddOrderCommand command, CancellationToken cancellationToken)
+    public async Task Handle(AddOrderCommand command, CancellationToken cancellationToken)
     {
         // TODO: Add validation for command
         if (command.OrderItems == null || command.OrderItems.Count == 0)
@@ -38,6 +38,5 @@ public class AddOrderCommandHandler : ICommandHandler<AddOrderCommand>
             DateTime.UtcNow);
 
         await _orderRepository.AddOrderAsync(order, cancellationToken);
-        return Unit.Value;
     }
 }

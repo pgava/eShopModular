@@ -6,15 +6,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
 
-internal class UnitOfWorkCommandHandlerDecorator<T> : ICommandHandler<T>
+internal class UnitOfWorkCommandHandlerDecorator<T> : IRequestHandler<T>, ICommandHandler
     where T : ICommand
 {
-    private readonly ICommandHandler<T> _decorated;
+    private readonly IRequestHandler<T> _decorated;
     private readonly IUnitOfWork _unitOfWork;
     private readonly EShopOrdersContext _eshopOrdersContext;
 
     public UnitOfWorkCommandHandlerDecorator(
-        ICommandHandler<T> decorated,
+        IRequestHandler<T> decorated,
         IUnitOfWork unitOfWork,
         EShopOrdersContext eshopOrdersContext)
     {
@@ -23,9 +23,9 @@ internal class UnitOfWorkCommandHandlerDecorator<T> : ICommandHandler<T>
         _eshopOrdersContext = eshopOrdersContext;
     }
 
-    public async Task<Unit> Handle(T command, CancellationToken cancellationToken)
+    public async Task Handle(T command, CancellationToken cancellationToken)
     {
-        await this._decorated.Handle(command, cancellationToken);
+        await _decorated.Handle(command, cancellationToken);
 
         if (command is InternalCommandBase)
         {
@@ -40,8 +40,6 @@ internal class UnitOfWorkCommandHandlerDecorator<T> : ICommandHandler<T>
             }
         }
 
-        await this._unitOfWork.CommitAsync(cancellationToken);
-
-        return Unit.Value;
+        await _unitOfWork.CommitAsync(cancellationToken);
     }
 }

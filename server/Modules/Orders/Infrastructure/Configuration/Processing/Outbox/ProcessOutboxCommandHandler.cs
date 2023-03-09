@@ -11,7 +11,7 @@ using Serilog.Events;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing.Outbox
 {
-    internal class ProcessOutboxCommandHandler : ICommandHandler<ProcessOutboxCommand>
+    internal class ProcessOutboxCommandHandler : IRequestHandler<ProcessOutboxCommand>, ICommandHandler
     {
         private readonly IMediator _mediator;
 
@@ -29,7 +29,7 @@ namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing.Ou
             _domainNotificationsMapper = domainNotificationsMapper;
         }
 
-        public async Task<Unit> Handle(ProcessOutboxCommand command, CancellationToken cancellationToken)
+        public async Task Handle(ProcessOutboxCommand command, CancellationToken cancellationToken)
         {
             var connection = this._sqlConnectionFactory.GetOpenConnection();
             string sql = "SELECT " +
@@ -53,20 +53,21 @@ namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing.Ou
                     var type = _domainNotificationsMapper.GetType(message.Type);
                     var @event = JsonConvert.DeserializeObject(message.Data, type) as IDomainEventNotification;
 
-                    using (LogContext.Push(new OutboxMessageContextEnricher(@event)))
+                    if (@event != null)
                     {
-                        await this._mediator.Publish(@event, cancellationToken);
-
-                        await connection.ExecuteAsync(sqlUpdateProcessedDate, new
+                        using (LogContext.Push(new OutboxMessageContextEnricher(@event)))
                         {
-                            Date = DateTime.UtcNow,
-                            message.Id
-                        });
+                            await this._mediator.Publish((object)@event, cancellationToken);
+
+                            await connection.ExecuteAsync(sqlUpdateProcessedDate, new
+                            {
+                                Date = DateTime.UtcNow,
+                                message.Id
+                            });
+                        }
                     }
                 }
             }
-
-            return Unit.Value;
         }
 
         private class OutboxMessageContextEnricher : ILogEventEnricher

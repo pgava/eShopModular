@@ -6,21 +6,21 @@ using MediatR;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing
 {
-    internal class ValidationCommandHandlerDecorator<T> : ICommandHandler<T>
+    internal class ValidationCommandHandlerDecorator<T> : IRequestHandler<T>, ICommandHandler
         where T : ICommand
     {
         private readonly IList<IValidator<T>> _validators;
-        private readonly ICommandHandler<T> _decorated;
+        private readonly IRequestHandler<T> _decorated;
 
         public ValidationCommandHandlerDecorator(
             IList<IValidator<T>> validators,
-            ICommandHandler<T> decorated)
+            IRequestHandler<T> decorated)
         {
             this._validators = validators;
             _decorated = decorated;
         }
 
-        public Task<Unit> Handle(T command, CancellationToken cancellationToken)
+        public Task Handle(T command, CancellationToken cancellationToken)
         {
             var errors = _validators
                 .Select(v => v.Validate(command))

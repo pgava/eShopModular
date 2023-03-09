@@ -14,13 +14,9 @@ public class OutboxMessage
 
     public OutboxMessage(Guid id, DateTime occurredOn, string type, string data)
     {
-        this.Id = id;
-        this.OccurredOn = occurredOn;
-        this.Type = type;
-        this.Data = data;
-    }
-
-    private OutboxMessage()
-    {
+        Id = id;
+        OccurredOn = occurredOn;
+        Type = type;
+        Data = data;
     }
 }

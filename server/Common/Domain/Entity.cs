@@ -2,12 +2,12 @@
 {
     public abstract class Entity
     {
-        private List<IDomainEvent> _domainEvents;
+        private List<IDomainEvent>? _domainEvents;
 
         /// <summary>
         /// Domain events occurred.
         /// </summary>
-        public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents?.AsReadOnly();
+        public IReadOnlyCollection<IDomainEvent>? DomainEvents => _domainEvents?.AsReadOnly();
 
         public void ClearDomainEvents()
         {

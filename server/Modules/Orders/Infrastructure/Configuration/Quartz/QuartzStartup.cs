@@ -11,7 +11,7 @@ namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Quartz;
 
 internal static class QuartzStartup
 {
-    private static IScheduler _scheduler;
+    private static IScheduler? _scheduler;
 
     internal static void Initialize(ILogger logger)
     {

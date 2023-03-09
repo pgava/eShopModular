@@ -1,12 +1,14 @@
 ﻿using Autofac;
 using EShopModular.Common.Application;
 using EShopModular.Common.Infrastructure;
+using EShopModular.Modules.Orders.Application.Configuration.Commands;
 using EShopModular.Modules.Orders.Infrastructure.Configuration.DataAccess;
 using EShopModular.Modules.Orders.Infrastructure.Configuration.Logging;
 using EShopModular.Modules.Orders.Infrastructure.Configuration.Mediation;
 using EShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
 using EShopModular.Modules.Orders.Infrastructure.Configuration.Processing.Outbox;
 using EShopModular.Modules.Orders.Infrastructure.Configuration.Quartz;
+using MediatR;
 using Serilog.Extensions.Logging;
 using ILogger = Serilog.ILogger;
 
@@ -48,7 +50,6 @@ namespace EShopModular.Modules.Orders.Infrastructure.Configuration
             var loggerFactory = new SerilogLoggerFactory(logger);
 
             containerBuilder.RegisterModule(new DataAccessModule(connectionString, loggerFactory));
-            containerBuilder.RegisterModule(new ProcessingModule());
             containerBuilder.RegisterModule(new MediatorModule());
 
             var domainNotificationsMap = new BiDictionary<string, Type>();
@@ -56,10 +57,13 @@ namespace EShopModular.Modules.Orders.Infrastructure.Configuration
             // Add domain notifications here
             containerBuilder.RegisterModule(new OutboxModule(domainNotificationsMap));
             containerBuilder.RegisterModule(new QuartzModule());
+            containerBuilder.RegisterModule(new ProcessingModule());
 
             containerBuilder.RegisterInstance(executionContextAccessor);
 
             _container = containerBuilder.Build();
+
+            var handler = _container.Resolve<IRequestHandler<ProcessOutboxCommand>>();
 
             EShopOrdersCompositionRoot.SetContainer(_container);
         }

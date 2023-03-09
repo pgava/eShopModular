@@ -1,96 +1,26 @@
-﻿using System.Reflection;
-using Autofac;
-using Autofac.Core;
-using Autofac.Features.Variance;
-using FluentValidation;
-using MediatR;
-using MediatR.Pipeline;
+﻿using Autofac;
+using EShopModular.Modules.Orders.Application.Orders.AddOrder;
+using MediatR.Extensions.Autofac.DependencyInjection;
+using MediatR.Extensions.Autofac.DependencyInjection.Builder;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Mediation
 {
-    public class MediatorModule : Autofac.Module
+    public class MediatorModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly)
-                .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+            // This uses a helper nuget package to register all handlers
+            // https://github.com/alsami/MediatR.Extensions.Autofac.DependencyInjection
+            var configuration = MediatRConfigurationBuilder
+                .Create(
+                    typeof(MediatorModule).Assembly, // ThisAssembly
+                    typeof(OrderItemDto).Assembly)
+                .WithAllOpenGenericHandlerTypesRegistered()
+                .Build();
 
-            builder.RegisterSource(new ScopedContravariantRegistrationSource(
-                typeof(IRequestHandler<,>),
-                typeof(IRequestHandler<>),
-                typeof(INotificationHandler<>),
-                typeof(IValidator<>)));
-
-            var mediatorOpenTypes = new[]
-            {
-                typeof(IRequestHandler<,>),
-                typeof(IRequestHandler<>),
-                typeof(INotificationHandler<>),
-                typeof(IValidator<>)
-            };
-
-            foreach (var mediatorOpenType in mediatorOpenTypes)
-            {
-                builder
-                    .RegisterAssemblyTypes(ThisAssembly, Assemblies.Application)
-                    .AsClosedTypesOf(mediatorOpenType)
-                    .AsImplementedInterfaces()
-                    .FindConstructorsWith(new AllConstructorFinder());
-            }
-
-            builder.RegisterGeneric(typeof(RequestPostProcessorBehavior<,>)).As(typeof(IPipelineBehavior<,>));
-            builder.RegisterGeneric(typeof(RequestPreProcessorBehavior<,>)).As(typeof(IPipelineBehavior<,>));
-
-            builder.Register<ServiceFactory>(ctx =>
-            {
-                var c = ctx.Resolve<IComponentContext>();
-                return t => c.Resolve(t);
-            }).InstancePerLifetimeScope();
-        }
-
-        /*
-         * https://github.com/jbogard/MediatR/issues/128
-         */
-        private class ScopedContravariantRegistrationSource : IRegistrationSource
-        {
-            private readonly IRegistrationSource _source = new ContravariantRegistrationSource();
-            private readonly List<Type> _types = new List<Type>();
-
-            public ScopedContravariantRegistrationSource(params Type[] types)
-            {
-                if (types == null)
-                {
-                    throw new ArgumentNullException(nameof(types));
-                }
-
-                if (!types.All(x => x.IsGenericTypeDefinition))
-                {
-                    throw new ArgumentException("Supplied types should be generic type definitions");
-                }
-
-                _types.AddRange(types);
-            }
-
-            public IEnumerable<IComponentRegistration> RegistrationsFor(
-                Service service,
-                Func<Service, IEnumerable<IComponentRegistration>> registrationAccessor)
-            {
-                var components = _source.RegistrationsFor(service, registrationAccessor);
-                foreach (var c in components)
-                {
-                    var defs = c.Target.Services
-                        .OfType<TypedService>()
-                        .Select(x => x.ServiceType.GetGenericTypeDefinition());
-
-                    if (defs.Any(_types.Contains))
-                    {
-                        yield return c;
-                    }
-                }
-            }
-
-            public bool IsAdapterForIndividualComponents => _source.IsAdapterForIndividualComponents;
+            // this will add all your Request- and NotificationHandler
+            // that are located in the same project
+            builder.RegisterMediatR(configuration);
         }
     }
 }

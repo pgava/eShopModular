@@ -1,6 +1,7 @@
 ﻿using EShopModular.Common.Application;
 using EShopModular.Modules.Orders.Application.Configuration.Commands;
 using EShopModular.Modules.Orders.Application.Contracts;
+using MediatR;
 using Serilog;
 using Serilog.Context;
 using Serilog.Core;
@@ -8,17 +9,17 @@ using Serilog.Events;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing;
 
-internal class LoggingCommandHandlerWithResultDecorator<T, TResult> : ICommandHandler<T, TResult>
+internal class LoggingCommandHandlerWithResultDecorator<T, TResult> : IRequestHandler<T, TResult>, ICommandHandler
     where T : ICommand<TResult>
 {
     private readonly ILogger _logger;
     private readonly IExecutionContextAccessor _executionContextAccessor;
-    private readonly ICommandHandler<T, TResult> _decorated;
+    private readonly IRequestHandler<T, TResult> _decorated;
 
     public LoggingCommandHandlerWithResultDecorator(
         ILogger logger,
         IExecutionContextAccessor executionContextAccessor,
-        ICommandHandler<T, TResult> decorated)
+        IRequestHandler<T, TResult> decorated)
     {
         _logger = logger;
         _executionContextAccessor = executionContextAccessor;

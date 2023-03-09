@@ -30,27 +30,51 @@ internal class ProcessingModule : Module
 
         builder.RegisterGenericDecorator(
             typeof(UnitOfWorkCommandHandlerDecorator<>),
-            typeof(ICommandHandler<>));
+            typeof(IRequestHandler<>),
+            context =>
+            {
+                return context.ImplementationType.GetInterfaces().Any(t => t == typeof(ICommandHandler));
+            });
 
         builder.RegisterGenericDecorator(
             typeof(UnitOfWorkCommandHandlerWithResultDecorator<,>),
-            typeof(ICommandHandler<,>));
+            typeof(IRequestHandler<,>),
+            context =>
+            {
+                return context.ImplementationType.GetInterfaces().Any(t => t == typeof(ICommandHandler));
+            });
 
         builder.RegisterGenericDecorator(
             typeof(ValidationCommandHandlerDecorator<>),
-            typeof(ICommandHandler<>));
+            typeof(IRequestHandler<>),
+            context =>
+            {
+                return context.ImplementationType.GetInterfaces().Any(t => t == typeof(ICommandHandler));
+            });
 
         builder.RegisterGenericDecorator(
             typeof(ValidationCommandHandlerWithResultDecorator<,>),
-            typeof(ICommandHandler<,>));
+            typeof(IRequestHandler<,>),
+            context =>
+            {
+                return context.ImplementationType.GetInterfaces().Any(t => t == typeof(ICommandHandler));
+            });
 
         builder.RegisterGenericDecorator(
             typeof(LoggingCommandHandlerDecorator<>),
-            typeof(ICommandHandler<>));
+            typeof(IRequestHandler<>),
+            context =>
+            {
+                return context.ImplementationType.GetInterfaces().Any(t => t == typeof(ICommandHandler));
+            });
 
         builder.RegisterGenericDecorator(
             typeof(LoggingCommandHandlerWithResultDecorator<,>),
-            typeof(ICommandHandler<,>));
+            typeof(IRequestHandler<,>),
+            context =>
+            {
+                return context.ImplementationType.GetInterfaces().Any(t => t == typeof(ICommandHandler));
+            });
 
         builder.RegisterGenericDecorator(
             typeof(DomainEventsDispatcherNotificationHandlerDecorator<>),

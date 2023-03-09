@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace EShopModular.Modules.Orders.Infrastructure.Configuration.Processing.Inbox;
 
-internal class ProcessInboxCommandHandler : ICommandHandler<ProcessInboxCommand>
+internal class ProcessInboxCommandHandler : IRequestHandler<ProcessInboxCommand>, ICommandHandler
 {
     private readonly IMediator _mediator;
     private readonly ISqlConnectionFactory _sqlConnectionFactory;
@@ -17,7 +17,7 @@ internal class ProcessInboxCommandHandler : ICommandHandler<ProcessInboxCommand>
         _sqlConnectionFactory = sqlConnectionFactory;
     }
 
-    public async Task<Unit> Handle(ProcessInboxCommand command, CancellationToken cancellationToken)
+    public async Task Handle(ProcessInboxCommand command, CancellationToken cancellationToken)
     {
         var connection = this._sqlConnectionFactory.GetOpenConnection();
         string sql = "SELECT " +
@@ -37,19 +37,29 @@ internal class ProcessInboxCommandHandler : ICommandHandler<ProcessInboxCommand>
         foreach (var message in messages)
         {
             var messageAssembly = AppDomain.CurrentDomain.GetAssemblies()
-                .SingleOrDefault(assembly => message.Type.Contains(assembly.GetName().Name));
+                .SingleOrDefault(assembly =>
+                {
+                    var value = assembly.GetName().Name;
+                    return value != null && message.Type.Contains(value);
+                });
 
-            Type type = messageAssembly.GetType(message.Type);
-            var request = JsonConvert.DeserializeObject(message.Data, type);
+            if (messageAssembly != null)
+            {
+                Type? type = messageAssembly.GetType(message.Type);
+                if (type != null)
+                {
+                    var request = JsonConvert.DeserializeObject(message.Data, type);
 
-            try
-            {
-                await _mediator.Publish((INotification)request, cancellationToken);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
+                    try
+                    {
+                        await _mediator.Publish((INotification)request!, cancellationToken);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        throw;
+                    }
+                }
             }
 
             await connection.ExecuteScalarAsync(sqlUpdateProcessedDate, new
@@ -58,7 +68,5 @@ internal class ProcessInboxCommandHandler : ICommandHandler<ProcessInboxCommand>
                 message.Id
             });
         }
-
-        return Unit.Value;
     }
 }

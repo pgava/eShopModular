@@ -14,18 +14,18 @@ public class DomainEventsAccessor : IDomainEventsAccessor
 
     public IReadOnlyCollection<IDomainEvent> GetAllDomainEvents()
     {
-        var domainEntities = this._context.ChangeTracker
+        var domainEntities = _context.ChangeTracker
             .Entries<Entity>()
             .Where(x => x.Entity.DomainEvents != null && x.Entity.DomainEvents.Any()).ToList();
 
         return domainEntities
-            .SelectMany(x => x.Entity.DomainEvents)
+            .SelectMany(x => x.Entity.DomainEvents!)
             .ToList();
     }
 
     public void ClearAllDomainEvents()
     {
-        var domainEntities = this._context.ChangeTracker
+        var domainEntities = _context.ChangeTracker
             .Entries<Entity>()
             .Where(x => x.Entity.DomainEvents != null && x.Entity.DomainEvents.Any()).ToList();
 
