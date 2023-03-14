@@ -1,5 +1,7 @@
 ﻿#nullable disable
 using EShopModular.Common.Domain;
+using EShopModular.Modules.Orders.Domain.Orders.Events;
+using EShopModular.Modules.Orders.Domain.Orders.Rules;
 
 namespace EShopModular.Modules.Orders.Domain.Orders;
 
@@ -7,6 +9,8 @@ public class Order : Entity, IAggregateRoot
 {
     public Order(OrderId id, string currency, List<OrderItem> orderItems, decimal shippingCost, decimal totalCost, decimal exchangeRate, DateTime createDate)
     {
+        CheckRule(new OrderCurrencyMustBeValidRule(currency));
+
         Id = id;
         Currency = currency;
         OrderItems = orderItems;
@@ -14,6 +18,8 @@ public class Order : Entity, IAggregateRoot
         TotalCost = totalCost;
         ExchangeRate = exchangeRate;
         CreateDate = createDate;
+
+        AddDomainEvent(new OrderCreatedDomainEvent(Id));
     }
 
     public Order()

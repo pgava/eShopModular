@@ -35,7 +35,7 @@ namespace EShopModular.Api.Controllers
                 request.ExchangeRate,
                 request.ShippingCost,
                 request.TotalCost,
-                request.OrderItems.Select(x => new OrderItemDto(
+                request.Products.Select(x => new OrderItemDto(
                     x.Quantity,
                     new ProductOrderDto(
                         x.Product.Id,

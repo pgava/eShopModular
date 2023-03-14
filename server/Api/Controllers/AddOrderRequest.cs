@@ -9,13 +9,13 @@ namespace EShopModular.Api.Controllers
             decimal totalCost,
             string currency,
             decimal exchangeRate,
-            List<OrderItemDto> orderItems)
+            List<OrderItemDto> products)
         {
             ShippingCost = shippingCost;
             TotalCost = totalCost;
             Currency = currency;
             ExchangeRate = exchangeRate;
-            OrderItems = orderItems;
+            Products = products;
         }
 
         public decimal ShippingCost { get; set; }
@@ -26,6 +26,6 @@ namespace EShopModular.Api.Controllers
 
         public decimal ExchangeRate { get; set; }
 
-        public List<OrderItemDto> OrderItems { get; set; }
+        public List<OrderItemDto> Products { get; set; }
     }
 }

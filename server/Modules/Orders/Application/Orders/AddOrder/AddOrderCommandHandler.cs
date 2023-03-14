@@ -1,5 +1,6 @@
 ﻿using EShopModular.Modules.Orders.Application.Configuration.Commands;
 using EShopModular.Modules.Orders.Domain.Orders;
+using EShopModular.Modules.Orders.Domain.SharedKernel;
 using MediatR;
 
 namespace EShopModular.Modules.Orders.Application.Orders.AddOrder;
@@ -15,14 +16,8 @@ public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand>, ICommand
 
     public async Task Handle(AddOrderCommand command, CancellationToken cancellationToken)
     {
-        // TODO: Add validation for command
-        if (command.OrderItems == null || command.OrderItems.Count == 0)
-        {
-            throw new ArgumentNullException("No items found.");
-        }
-
-        // TODO: Add below to the order domain
         var orderId = new OrderId(Guid.NewGuid());
+
         var order = new Order(
             orderId,
             command.Currency,
@@ -35,7 +30,7 @@ public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand>, ICommand
             command.ShippingCost,
             command.TotalCost,
             command.ExchangeRate,
-            DateTime.UtcNow);
+            SystemClock.Now);
 
         await _orderRepository.AddOrderAsync(order, cancellationToken);
     }
