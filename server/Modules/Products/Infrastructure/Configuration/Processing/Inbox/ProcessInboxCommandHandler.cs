@@ -24,13 +24,13 @@ internal class ProcessInboxCommandHandler : IRequestHandler<ProcessInboxCommand>
                      $"[InboxMessage].[Id] AS [{nameof(InboxMessageDto.Id)}], " +
                      $"[InboxMessage].[Type] AS [{nameof(InboxMessageDto.Type)}], " +
                      $"[InboxMessage].[Data] AS [{nameof(InboxMessageDto.Data)}] " +
-                     "FROM [order].[InboxMessages] AS [InboxMessage] " +
+                     "FROM [product].[InboxMessages] AS [InboxMessage] " +
                      "WHERE [InboxMessage].[ProcessedDate] IS NULL " +
                      "ORDER BY [InboxMessage].[OccurredOn]";
 
         var messages = await connection.QueryAsync<InboxMessageDto>(sql);
 
-        const string sqlUpdateProcessedDate = "UPDATE [order].[InboxMessages] " +
+        const string sqlUpdateProcessedDate = "UPDATE [product].[InboxMessages] " +
                                               "SET [ProcessedDate] = @Date " +
                                               "WHERE [Id] = @Id";
 

@@ -25,6 +25,21 @@ namespace EShopModular.Modules.Products.Infrastructure.Configuration.Mediation
             // this will add all your Request- and Notificationhandler
             // that are located in the same project
             builder.RegisterMediatR(configuration);
+
+            // Add validators,...
+            var mediatorOpenTypes = new[]
+            {
+                typeof(IValidator<>)
+            };
+
+            foreach (var mediatorOpenType in mediatorOpenTypes)
+            {
+                builder
+                    .RegisterAssemblyTypes(ThisAssembly, Assemblies.Application)
+                    .AsClosedTypesOf(mediatorOpenType)
+                    .AsImplementedInterfaces()
+                    .FindConstructorsWith(new AllConstructorFinder());
+            }
         }
     }
 }

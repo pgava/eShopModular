@@ -17,11 +17,13 @@ public static class ContainerManager
         EShopOrdersStartup.Initialize(
             configuration[EShopCmcConnectionString],
             executionContextAccessor,
-            logger);
+            logger,
+            default);
 
         EShopProductsStartup.Initialize(
             configuration[EShopCmcConnectionString],
             executionContextAccessor,
-            logger);
+            logger,
+            default);
     }
 }

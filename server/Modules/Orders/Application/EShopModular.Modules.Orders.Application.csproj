@@ -18,7 +18,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Common\Application\EShopModular.Common.Application.csproj" />
+      <ProjectReference Include="..\..\..\Common\Infrastructure\EShopModular.Common.Infrastructure.csproj" />
       <ProjectReference Include="..\Domain\EShopModular.Modules.Orders.Domain.csproj" />
+      <ProjectReference Include="..\IntegrationEvents\EShopModular.Modules.Orders.IntegrationEvents.csproj" />
     </ItemGroup>
 
 </Project>
