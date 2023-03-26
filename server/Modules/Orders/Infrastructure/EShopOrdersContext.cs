@@ -14,8 +14,6 @@ public class EShopOrdersContext : DbContext
 
     public DbSet<Order> Orders { get; set; }
 
-    public DbSet<OrderItem> OrderItems { get; set; }
-
     public DbSet<InternalCommand> InternalCommands { get; set; }
 
     public DbSet<OutboxMessage> OutboxMessages { get; set; }

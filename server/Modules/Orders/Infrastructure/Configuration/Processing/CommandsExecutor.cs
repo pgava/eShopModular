@@ -15,4 +15,13 @@ public static class CommandsExecutor
             await mediator.Send(command);
         }
     }
+
+    internal static async Task<TResult> Execute<TResult>(ICommand<TResult> command)
+    {
+        using (var scope = EShopOrdersCompositionRoot.BeginLifetimeScope())
+        {
+            var mediator = scope.Resolve<IMediator>();
+            return await mediator.Send(command);
+        }
+    }
 }

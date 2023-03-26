@@ -5,7 +5,7 @@ using MediatR;
 
 namespace EShopModular.Modules.Orders.Application.Orders.AddOrder;
 
-public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand>, ICommandHandler
+internal class AddOrderCommandHandler : IRequestHandler<AddOrderCommand, Guid>, ICommandHandler
 {
     private readonly IOrderRepository _orderRepository;
 
@@ -14,24 +14,22 @@ public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand>, ICommand
         _orderRepository = orderRepository;
     }
 
-    public async Task Handle(AddOrderCommand command, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(AddOrderCommand command, CancellationToken cancellationToken)
     {
-        var orderId = new OrderId(Guid.NewGuid());
-
-        var order = new Order(
-            orderId,
+        var order = Order.CreateNew(
             command.Currency,
-            command.OrderItems.Select(s => new OrderItem(
-                new OrderItemId(Guid.NewGuid()),
-                orderId,
-                s.Product.Id,
-                s.Quantity,
-                s.Product.Price)).ToList(),
             command.ShippingCost,
             command.TotalCost,
             command.ExchangeRate,
             SystemClock.Now);
 
+        command.OrderItems.ForEach(s => order.AddItem(
+            s.Product.Id,
+            s.Quantity,
+            s.Product.Price));
+
         await _orderRepository.AddOrderAsync(order, cancellationToken);
+
+        return order.Id.Value;
     }
 }

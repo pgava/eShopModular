@@ -11,5 +11,10 @@ internal class CountryConfiguration : IEntityTypeConfiguration<Country>
         builder.ToTable("Countries", "order");
 
         builder.HasKey(x => x.Id);
+
+        builder.Property<string>("_countryName").HasColumnName("CountryName");
+        builder.Property<string>("_currencyCode").HasColumnName("CurrencyCode");
+        builder.Property<string>("_currencySymbol").HasColumnName("CurrencySymbol");
+        builder.Property<decimal>("_exchangeRate").HasColumnName("ExchangeRate");
     }
 }

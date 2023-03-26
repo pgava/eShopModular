@@ -1,26 +1,19 @@
-﻿using EShopModular.Common.Domain;
+﻿#nullable disable
+using EShopModular.Common.Domain;
 
 namespace EShopModular.Modules.Orders.Domain.Countries;
 
-// TODO move this inside Orders folder
-public class Country : Entity
+// Cannot make this class immutable because of EF Core
+public class Country : Entity, IAggregateRoot
 {
-    public Country(CountryId id, string countryName, string currencyCode, string currencySymbol, decimal exchangeRate)
+    public CountryId Id { get; private set; }
+
+    // private string _countryName;
+    // private string _currencyCode;
+    // private string _currencySymbol;
+    // private decimal _exchangeRate;
+    private Country()
     {
-        Id = id;
-        CountryName = countryName;
-        CurrencyCode = currencyCode;
-        CurrencySymbol = currencySymbol;
-        ExchangeRate = exchangeRate;
     }
-
-    public CountryId Id { get; set; }
-
-    public string CountryName { get; set; }
-
-    public string CurrencyCode { get; set; }
-
-    public string CurrencySymbol { get; set; }
-
-    public decimal ExchangeRate { get; set; }
 }
+#nullable enable

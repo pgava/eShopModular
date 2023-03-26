@@ -2,15 +2,12 @@
 
 public class CountryDto
 {
-    public CountryDto(Guid id, string currency, string countryName, decimal exchangeRate)
+    public CountryDto(string countryName, string currency, decimal exchangeRate)
     {
-        Id = id;
         CountryName = countryName;
         ExchangeRate = exchangeRate;
         Currency = currency;
     }
-
-    public Guid Id { get; set; }
 
     public string CountryName { get; set; }
 

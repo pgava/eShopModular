@@ -2,7 +2,7 @@ using EShopModular.Modules.Orders.Application.Configuration.Queries;
 
 namespace EShopModular.Modules.Orders.Application.Orders.GetShippingCost;
 
-public class GetShippingCostQueryHandler : IQueryHandler<GetShippingCostQuery, int>
+internal class GetShippingCostQueryHandler : IQueryHandler<GetShippingCostQuery, int>
 {
     public Task<int> Handle(GetShippingCostQuery request, CancellationToken cancellationToken)
     {

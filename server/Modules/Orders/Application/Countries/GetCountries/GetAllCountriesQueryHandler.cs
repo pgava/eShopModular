@@ -1,17 +1,18 @@
+using Dapper;
+using EShopModular.Common.Infrastructure;
 using EShopModular.Modules.Orders.Application.Configuration.Queries;
-using EShopModular.Modules.Orders.Domain.Countries;
 using Serilog;
 
 namespace EShopModular.Modules.Orders.Application.Countries.GetCountries;
 
-public class GetAllCountriesQueryHandler : IQueryHandler<GetAllCountriesQuery, List<CountryDto>>
+internal class GetAllCountriesQueryHandler : IQueryHandler<GetAllCountriesQuery, List<CountryDto>>
 {
-    private readonly ICountryRepository _countryRepository;
+    private readonly ISqlConnectionFactory _sqlConnectionFactory;
     private readonly ILogger _logger;
 
-    public GetAllCountriesQueryHandler(ICountryRepository countryRepository, ILogger logger)
+    public GetAllCountriesQueryHandler(ISqlConnectionFactory sqlConnectionFactory, ILogger logger)
     {
-        _countryRepository = countryRepository;
+        _sqlConnectionFactory = sqlConnectionFactory;
         _logger = logger;
     }
 
@@ -19,12 +20,13 @@ public class GetAllCountriesQueryHandler : IQueryHandler<GetAllCountriesQuery, L
     {
         _logger.Information($"Getting all countries");
 
-        var countries = await _countryRepository.GetCountriesAsync(cancellationToken);
+        var connection = _sqlConnectionFactory.GetOpenConnection();
 
-        return countries.Select(x => new CountryDto(
-            x.Id.Value,
-            x.CurrencySymbol,
-            x.CountryName,
-            x.ExchangeRate)).ToList();
+        return (await connection.QueryAsync<CountryDto>(
+            "SELECT " +
+            $"[Country].[CountryName] AS [{nameof(CountryDto.CountryName)}],  " +
+            $"[Country].[CurrencySymbol] AS [{nameof(CountryDto.Currency)}], " +
+            $"[Country].[ExchangeRate] AS [{nameof(CountryDto.ExchangeRate)}] " +
+            "FROM [order].[Countries] AS [Country]")).AsList();
     }
 }

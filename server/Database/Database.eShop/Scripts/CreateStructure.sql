@@ -32,18 +32,18 @@ CREATE TABLE [order].[Orders] (
 );
 
 GO
-PRINT N'Creating [order].[Items]...';
+PRINT N'Creating [order].[OrderItems]...';
 
 
 GO
-CREATE TABLE [order].[Items] (
+CREATE TABLE [order].[OrderItems] (
     [Id]         UNIQUEIDENTIFIER NOT NULL,
     [OrderId]    UNIQUEIDENTIFIER NOT NULL,
     [ProductId]  UNIQUEIDENTIFIER NOT NULL,
     [Quantity]   INT              NOT NULL,
     [Price]      DECIMAL (18, 2)  NOT NULL,
-    CONSTRAINT [PK_order_Items_Id] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_order_Items_Orders] FOREIGN KEY ([OrderId]) REFERENCES [order].[Orders] ([Id]),
+    CONSTRAINT [PK_order_OrderItems_Id] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_order_OrderItems_Orders] FOREIGN KEY ([OrderId]) REFERENCES [order].[Orders] ([Id]),
 );
 
 

@@ -4,7 +4,7 @@ using EShopModular.Modules.Orders.Application.Contracts;
 
 namespace EShopModular.Modules.Orders.Application.Orders.AddOrder;
 
-public class CreateTransactionCommand : InternalCommandBase
+internal class CreateTransactionCommand : InternalCommandBase
 {
     [JsonConstructor]
     public CreateTransactionCommand(

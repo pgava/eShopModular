@@ -5,7 +5,7 @@ using MediatR;
 
 namespace EShopModular.Modules.Orders.Application.Orders.AddOrder;
 
-public class CreateTransactionCommandHandler : IRequestHandler<CreateTransactionCommand>, ICommandHandler
+internal class CreateTransactionCommandHandler : IRequestHandler<CreateTransactionCommand>, ICommandHandler
 {
     private readonly IOrderRepository _orderRepository;
 

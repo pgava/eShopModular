@@ -1,10 +1,9 @@
 ﻿using System.Text.Json.Serialization;
-using EShopModular.Modules.Orders.Application.Configuration.Commands;
 using EShopModular.Modules.Orders.Application.Contracts;
 
 namespace EShopModular.Modules.Orders.Application.Orders.AddOrder;
 
-public class AddOrderCommand : InternalCommandBase
+public class AddOrderCommand : CommandBase<Guid>
 {
     [JsonConstructor]
     public AddOrderCommand(
@@ -23,13 +22,13 @@ public class AddOrderCommand : InternalCommandBase
         OrderItems = orderItems;
     }
 
-    public decimal ShippingCost { get; set; }
+    public decimal ShippingCost { get; }
 
-    public decimal TotalCost { get; set; }
+    public decimal TotalCost { get; }
 
-    public string Currency { get; set; }
+    public string Currency { get; }
 
-    public decimal ExchangeRate { get; set; }
+    public decimal ExchangeRate { get; }
 
-    public List<OrderItemDto> OrderItems { get; set; }
+    public List<OrderItemDto> OrderItems { get; }
 }
